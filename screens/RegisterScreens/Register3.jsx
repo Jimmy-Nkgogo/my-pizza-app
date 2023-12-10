@@ -184,7 +184,10 @@ const Register2 = ({ navigation }) => {
           </View>
 
           <View style={styles.btnViewStyle}>
-            <TouchableOpacity style={styles.btnBack}>
+            <TouchableOpacity
+              style={styles.btnBack}
+              onPress={() => navigation.goBack()}
+            >
               <Text
                 style={{
                   fontWeight: "bold",
