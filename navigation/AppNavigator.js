@@ -17,7 +17,11 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
         <Stack.Screen
           name="SplashScreen"
@@ -36,7 +40,6 @@ const BottomTabs = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "blue",
-        // tabBarInactiveTintColor: "lightgray",
       }}
     >
       <Tab.Screen
@@ -82,6 +85,7 @@ const BottomTabs = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="pencil-sharp" size={24} color={color} />
           ),
+          headerTitle: "",
         }}
       />
     </Tab.Navigator>
