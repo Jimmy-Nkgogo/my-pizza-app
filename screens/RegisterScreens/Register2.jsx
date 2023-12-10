@@ -8,15 +8,46 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
+import { AntDesign } from "@expo/vector-icons";
 
 const Register2 = ({ navigation }) => {
   const [dietaryReq, setDietaryReq] = useState([
     {
       id: 1,
-      req: "",
+      req: "Halaal",
+      checked: false,
+    },
+    {
+      id: 2,
+      req: "Vegetaian",
+      checked: false,
+    },
+    {
+      id: 3,
+      req: "No Garlic",
+      checked: false,
+    },
+    {
+      id: 4,
+      req: "No Chilli",
+      checked: false,
+    },
+    {
+      id: 5,
+      req: "none",
+      checked: true,
     },
   ]);
+  const [checked, setChecked] = useState(false);
   const [req, setReq] = useState("");
+
+  const handleCheck = (id) => {
+    console.log(id);
+    const listItems = dietaryReq.map((item) =>
+      item.id === id ? { ...item, checked: !item.checked } : item
+    );
+    setDietaryReq(listItems);
+  };
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -29,17 +60,7 @@ const Register2 = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={styles.numbers}>
-        <View style={styles.inActiveNumber}>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              textAlign: "center",
-            }}
-          >
-            1
-          </Text>
-        </View>
+        <AntDesign name="checkcircle" size={24} color="green" />
         <View style={styles.activeNumber}>
           <Text
             style={{
@@ -66,28 +87,46 @@ const Register2 = ({ navigation }) => {
           <Text style={styles.headerText}>MY DIETARY REQUIREMENTS</Text>
           <Text>Select your dietary requirements below.</Text>
           <View style={{ marginVertical: 15 }}></View>
-          <TouchableOpacity>
-            <Text>Halaal</Text>
-          </TouchableOpacity>
+
+          {dietaryReq.map((item) => (
+            <TouchableOpacity onPress={handleCheck} style={styles.inputStyle}>
+              <Text>{item.req}</Text>
+              {item.checked ? (
+                <AntDesign name="check" size={30} color="green" />
+              ) : null}
+            </TouchableOpacity>
+          ))}
 
           <View style={styles.btnViewStyle}>
-
-          </View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Register2")}
-            style={styles.btnNext}
-          >
-            <Text
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: 18,
-                textAlign: "center",
-              }}
+            <TouchableOpacity style={styles.btnBack}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: 18,
+                  textAlign: "center",
+                  letterSpacing: 1,
+                }}
+              >
+                BACK
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Register3")}
+              style={styles.btnNext}
             >
-              Next
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: 18,
+                  textAlign: "center",
+                  letterSpacing: 1,
+                }}
+              >
+                NEXT
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -141,20 +180,41 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   inputStyle: {
-    width: "90%",
+    width: "50%",
     height: 48,
     marginVertical: 10,
     backgroundColor: "#eee",
     borderRadius: 10,
     paddingHorizontal: 10,
+    justifyContent: "space-between",
+    flexDirection: "row",
+    alignItems: "center",
   },
   btnNext: {
     backgroundColor: "blue",
-    width: "90%",
+    width: "50%",
     height: 48,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 18,
+    borderRadius: 30,
     marginVertical: 20,
+  },
+  btnViewStyle: {
+    width: "80%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  btnBack: {
+    backgroundColor: "white",
+    width: "50%",
+    height: 48,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 30,
+    marginVertical: 20,
+    borderWidth: 2,
+    borderColor: "#444",
   },
 });
