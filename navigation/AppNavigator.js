@@ -39,7 +39,7 @@ const BottomTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: "blue",
+        tabBarActiveTintColor: "black",
       }}
     >
       <Tab.Screen
@@ -85,7 +85,7 @@ const BottomTabs = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="pencil-sharp" size={24} color={color} />
           ),
-          headerTitle: "",
+          headerTitle: "Register",
         }}
       />
     </Tab.Navigator>
