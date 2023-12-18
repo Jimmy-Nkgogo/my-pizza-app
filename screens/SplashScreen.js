@@ -2,10 +2,10 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
 const SplashScreen = ({ navigation }) => {
-  const image = require("../assets/download.jpeg");
-  
+  const image = require("../assets/romans-logo.jpeg");
+
   setTimeout(() => {
-    navigation.navigate('BottomTabs')
+    navigation.navigate("BottomTabs");
   }, 3000);
   return (
     <View style={styles.container}>

@@ -10,6 +10,7 @@ import RegisterNav from "../screens/RegisterNav";
 import { EvilIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import AuthStack from "./AuthStack";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -22,7 +23,6 @@ const AppNavigator = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="BottomTabs" component={BottomTabs} />
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
@@ -30,6 +30,8 @@ const AppNavigator = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="BottomTabs" component={BottomTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -92,5 +94,7 @@ const BottomTabs = () => {
     </Tab.Navigator>
   );
 };
+
+
 
 export default AppNavigator;

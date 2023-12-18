@@ -82,56 +82,62 @@ const Register2 = ({ navigation }) => {
         </View>
       </View>
       {/* Inputs are here */}
-      <ScrollView style={{ width: "100%", flex: 1, marginVertical: 10 }}>
-        <View style={styles.main}>
-          <Text style={styles.headerText}>MY DIETARY REQUIREMENTS</Text>
-          <Text>Select your dietary requirements below.</Text>
-          <View style={{ marginVertical: 15 }}></View>
+      <View style={styles.main}>
+        <Text style={styles.headerText}>MY DIETARY REQUIREMENTS</Text>
+        <Text>Select your dietary requirements below.</Text>
+        <View style={{ marginVertical: 15 }}></View>
 
-          {dietaryReq.map((item) => (
-            <TouchableOpacity onPress={handleCheck} style={styles.inputStyle}>
-              <Text>{item.req}</Text>
-              {item.checked ? (
-                <AntDesign name="check" size={30} color="green" />
-              ) : null}
-            </TouchableOpacity>
-          ))}
+        <ScrollView style={{ width: "100%", flex: 1, marginVertical: 10 }}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            {dietaryReq.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={handleCheck}
+                style={styles.inputStyle}
+              >
+                <Text>{item.req}</Text>
+                {item.checked ? (
+                  <AntDesign name="check" size={30} color="green" />
+                ) : null}
+              </TouchableOpacity>
+            ))}
 
-          <View style={styles.btnViewStyle}>
-            <TouchableOpacity
-              style={styles.btnBack}
-              onPress={() => navigation.goBack()}
-            >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  fontSize: 18,
-                  textAlign: "center",
-                  letterSpacing: 1,
-                }}
+            <View style={styles.btnViewStyle}>
+              <TouchableOpacity
+                style={styles.btnBack}
+                onPress={() => navigation.goBack()}
               >
-                BACK
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Register3")}
-              style={styles.btnNext}
-            >
-              <Text
-                style={{
-                  color: "white",
-                  fontWeight: "bold",
-                  fontSize: 18,
-                  textAlign: "center",
-                  letterSpacing: 1,
-                }}
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    textAlign: "center",
+                    letterSpacing: 1,
+                  }}
+                >
+                  BACK
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Register3")}
+                style={styles.btnNext}
               >
-                NEXT
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    textAlign: "center",
+                    letterSpacing: 1,
+                  }}
+                >
+                  NEXT
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
     </KeyboardAvoidingView>
   );
 };
