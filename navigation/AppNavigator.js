@@ -72,7 +72,7 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Login"
+        name="more"
         component={Login}
         options={{
           tabBarIcon: ({ color }) => (
@@ -80,17 +80,7 @@ const BottomTabs = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="RegisterNav"
-        component={RegisterNav}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="pencil-sharp" size={24} color={color} />
-          ),
-          headerTitle: "Register",
-          title: "Register",
-        }}
-      />
+
     </Tab.Navigator>
   );
 };
