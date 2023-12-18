@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const CustomerSevice = () => {
+const CustomerService = () => {
   return (
     <View>
       <Text>CustomerSevice</Text>
