@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "../screens/SplashScreen";
 import MenuScreen from "../screens/MenuScreen";
 import CartScreen from "../screens/CartScreen";
@@ -13,11 +13,11 @@ import { Ionicons } from "@expo/vector-icons";
 import AuthStack from "./AuthStack";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   return (
-    <NavigationContainer>
+    <>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
@@ -31,9 +31,10 @@ const AppNavigator = () => {
           }}
         />
         <Stack.Screen name="AuthStack" component={AuthStack} />
+
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
       </Stack.Navigator>
-    </NavigationContainer>
+    </>
   );
 };
 
@@ -94,7 +95,5 @@ const BottomTabs = () => {
     </Tab.Navigator>
   );
 };
-
-
 
 export default AppNavigator;

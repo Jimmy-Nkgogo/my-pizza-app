@@ -5,7 +5,7 @@ const SplashScreen = ({ navigation }) => {
   const image = require("../assets/romans-logo.jpeg");
 
   setTimeout(() => {
-    navigation.navigate("BottomTabs");
+    navigation.navigate("AuthStack");
   }, 3000);
   return (
     <View style={styles.container}>
