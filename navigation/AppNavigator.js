@@ -31,7 +31,6 @@ const AppNavigator = () => {
           }}
         />
         <Stack.Screen name="AuthStack" component={AuthStack} />
-
         <Stack.Screen name="BottomTabs" component={BottomTabs} />
       </Stack.Navigator>
     </>
