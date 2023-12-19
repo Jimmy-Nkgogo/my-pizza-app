@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import Register1 from "../screens/RegisterScreens/Register1";
-import Register2 from "../screens/RegisterScreens/Register2";
-import Register3 from "../screens/RegisterScreens/Register3";
+import Register1 from "../screens/Register Screens/Register1";
+import Register2 from "../screens/Register Screens/Register2";
+import Register3 from "../screens/Register Screens/Register3";
 
 const Stack = createStackNavigator();
 
