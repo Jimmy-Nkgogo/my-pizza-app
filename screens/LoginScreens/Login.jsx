@@ -8,13 +8,15 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
-import img from "../assets/login-pizza.png";
+
 import { AntDesign } from "@expo/vector-icons";
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passhide, setPassHide] = useState(true);
+
+  const img = require("../../assets/login-pizza.png")
 
   const handlePasswordShow = () => {
     setPassHide(!passhide);
@@ -60,6 +62,19 @@ const Login = ({ navigation }) => {
           </View>
           <TouchableOpacity onPress={handlePasswordShow}>
             <AntDesign name="eyeo" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={{ alignItems: "flex-end", width: "90%" }}>
+          <TouchableOpacity>
+            <Text
+              style={{
+                letterSpacing: 0.5,
+                fontSize: 16,
+              }}
+            >
+              Forgot Password?
+            </Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>

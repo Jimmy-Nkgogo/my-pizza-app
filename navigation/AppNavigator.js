@@ -5,7 +5,6 @@ import SplashScreen from "../screens/SplashScreen";
 import MenuScreen from "../screens/MenuScreen";
 import CartScreen from "../screens/CartScreen";
 import Stores from "../screens/Stores";
-import Login from "../screens/Login";
 import { EvilIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
