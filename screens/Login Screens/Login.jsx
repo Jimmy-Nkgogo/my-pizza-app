@@ -68,7 +68,9 @@ const Login = ({ navigation }) => {
         <View
           style={{ alignItems: "flex-end", width: "90%", marginVertical: 20 }}
         >
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ForgotPassword")}
+          >
             <Text
               style={{
                 letterSpacing: 0.5,

@@ -41,7 +41,7 @@ const Register2 = ({ navigation }) => {
       <View>
         <TouchableOpacity
           style={styles.btnLogin}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate("LoginNav")}
         >
           <Text style={{ color: "white", letterSpacing: 2 }}>
             LOGIN INSTEAD
