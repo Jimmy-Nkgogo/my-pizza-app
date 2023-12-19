@@ -8,7 +8,7 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
-
+import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
 const Login = ({ navigation }) => {
@@ -16,7 +16,7 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [passhide, setPassHide] = useState(true);
 
-  const img = require("../../assets/login-pizza.png")
+  const img = require("../../assets/login-pizza.png");
 
   const handlePasswordShow = () => {
     setPassHide(!passhide);
@@ -65,7 +65,9 @@ const Login = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <View style={{ alignItems: "flex-end", width: "90%" }}>
+        <View
+          style={{ alignItems: "flex-end", width: "90%", marginVertical: 20 }}
+        >
           <TouchableOpacity>
             <Text
               style={{
@@ -77,6 +79,42 @@ const Login = ({ navigation }) => {
             </Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("BottomTabs")}
+          style={styles.btnNext}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              fontSize: 18,
+              textAlign: "center",
+              letterSpacing: 2,
+            }}
+          >
+            LOGIN
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate("RegisterNav")}
+          style={{
+            flexDirection: "row",
+            marginVertical: 10,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              color: "#888",
+              letterSpacing: 2,
+            }}
+          >
+            REGISTER INSTEAD
+          </Text>
+          <MaterialIcons name="navigate-next" size={24} color="black" />
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     </View>
   );
@@ -127,9 +165,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingRight: 10,
   },
+  btnNext: {
+    backgroundColor: "blue",
+    width: "90%",
+    height: 48,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 18,
+    marginVertical: 20,
+  },
 });
-{
-  /* <TouchableOpacity onPress={() => navigation.navigate('RegisterNav')}>
-  <Text>REGISTER INSTEAD</Text>
-</TouchableOpacity> */
-}
