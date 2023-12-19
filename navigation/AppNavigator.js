@@ -10,6 +10,7 @@ import { EvilIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import AuthStack from "./AuthStack";
+import More from "../screens/More";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -44,7 +45,7 @@ const BottomTabs = () => {
       }}
     >
       <Tab.Screen
-        name="Menu"
+        name="MenuScreen"
         component={MenuScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -53,7 +54,7 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Cart"
+        name="CartSceen"
         component={CartScreen}
         options={{
           tabBarIcon: ({ color }) => (
@@ -62,7 +63,7 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Stores"
+        name="StoresScreen"
         component={Stores}
         options={{
           tabBarIcon: ({ color }) => (
@@ -71,11 +72,11 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="more"
-        component={Login}
+        name="MoreScreen"
+        component={More}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="menu" size={24} color="black" />
+            <Ionicons name="menu" size={24} color={color} />
           ),
         }}
       />
