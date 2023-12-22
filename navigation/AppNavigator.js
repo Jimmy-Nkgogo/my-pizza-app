@@ -51,6 +51,8 @@ const BottomTabs = () => {
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="book" size={24} color={color} />
           ),
+          title: "Menu",
+          headerTitle: "",
         }}
       />
       <Tab.Screen
@@ -60,6 +62,8 @@ const BottomTabs = () => {
           tabBarIcon: ({ color }) => (
             <AntDesign name="shoppingcart" size={24} color={color} />
           ),
+          title: "Cart",
+          headerTitle: "",
         }}
       />
       <Tab.Screen
@@ -69,6 +73,8 @@ const BottomTabs = () => {
           tabBarIcon: ({ color }) => (
             <EvilIcons name="location" size={34} color={color} />
           ),
+          title: "Stores",
+          headerTitle: "",
         }}
       />
       <Tab.Screen
@@ -78,6 +84,8 @@ const BottomTabs = () => {
           tabBarIcon: ({ color }) => (
             <Ionicons name="menu" size={24} color={color} />
           ),
+          title: "More",
+          headerTitle: "",
         }}
       />
     </Tab.Navigator>
