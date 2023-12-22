@@ -7,12 +7,16 @@ import SavedAddresses from "../screens/More Screens/SavedAddresses";
 import SavedCards from "../screens/More Screens/SavedCards";
 import CustomerService from "../screens/More Screens/CustomerService";
 
-
 const Stack = createNativeStackNavigator();
 
 const MoreNav = () => {
   return (
-    <Stack.Navigator initialRouteName="">
+    <Stack.Navigator
+      initialRouteName="MoreIntro"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="MoreIntro" component={MoreIntro} />
       <Stack.Screen name="ViewAccount" component={ViewAccount} />
       <Stack.Screen name="OrderHistory" component={OrderHistory} />
