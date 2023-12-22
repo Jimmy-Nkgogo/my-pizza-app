@@ -96,7 +96,10 @@ const MoreIntro = ({ navigation }) => {
         <Text style={styles.lineBreakStyle}>
           ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         </Text>
-        <TouchableOpacity style={{ marginVertical: 12 }}>
+        <TouchableOpacity
+          style={{ marginVertical: 12 }}
+          onPress={() => navigation.push("AuthStack")}
+        >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
             Logout
           </Text>
