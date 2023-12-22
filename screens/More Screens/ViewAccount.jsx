@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 
-const ViewAccount = () => {
+const ViewAccount = ({ navigation, route }) => {
+  const user = route.params.user;
   return (
     <View>
-      <Text>ViewAccount</Text>
+      <Text>{user} </Text>
     </View>
-  )
-}
+  );
+};
 
-export default ViewAccount
+export default ViewAccount;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

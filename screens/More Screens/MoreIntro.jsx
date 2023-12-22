@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const MoreIntro = ({ navigation }) => {
-  const handleNavigation = (location) => {
-    navigation.navigate(location);
+  const [user, setUser] = useState("Jimmy Nkgogo");
+
+  const handleNavigation = (location, options) => {
+    navigation.navigate(location, options);
   };
   return (
     <View style={styles.container}>
@@ -22,7 +24,7 @@ const MoreIntro = ({ navigation }) => {
       >
         <FontAwesome5 name="user-circle" size={50} color="black" />
         <Text style={{ fontSize: 28, fontWeight: "900", letterSpacing: 1.5 }}>
-          Jimmy Nkgogo
+          {user}
         </Text>
       </View>
       <Text style={styles.lineBreakStyle}>
@@ -31,7 +33,7 @@ const MoreIntro = ({ navigation }) => {
       {/* The buttons will go here to navigation to the other places */}
       <View>
         <TouchableOpacity
-          onPress={() => handleNavigation("ViewAccount")}
+          onPress={() => handleNavigation("ViewAccount", { user })}
           style={{ marginVertical: 12 }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
