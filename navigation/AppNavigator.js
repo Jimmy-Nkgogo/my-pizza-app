@@ -42,6 +42,7 @@ const BottomTabs = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "black",
+        
       }}
     >
       <Tab.Screen
