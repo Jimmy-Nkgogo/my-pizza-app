@@ -16,7 +16,9 @@ const CartScreen = ({ navigation }) => {
         onPress={() => navigation.navigate("Menu")}
       >
         <Ionicons name="chevron-back-outline" size={24} color="black" />
-        <Text style={{ textAlign: "center" }}>My Cart</Text>
+        <Text style={{ textAlign: "center", fontWeight: "bold", fontSize: 24 }}>
+          My Cart
+        </Text>
       </TouchableOpacity>
       <View style={styles.textView}>
         <Text

@@ -46,7 +46,7 @@ const BottomTabs = () => {
       }}
     >
       <Tab.Screen
-        name="MenuScreen"
+        name="Menu"
         component={MenuScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
