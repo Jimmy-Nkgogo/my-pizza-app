@@ -64,7 +64,7 @@ const MoreIntro = ({ navigation }) => {
           ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         </Text>
         <TouchableOpacity
-          onPress={() => handleNavigation("SavedAddesses")}
+          onPress={() => handleNavigation("SavedAddresses")}
           style={{ marginVertical: 12 }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
