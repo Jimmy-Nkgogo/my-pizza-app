@@ -85,7 +85,11 @@ const MoreIntro = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           onPress={() => handleNavigation("SavedAddresses")}
-          style={{ marginVertical: 12 }}
+          style={{
+            marginVertical: 12,
+            marginVertical: -2,
+            paddingVertical: 15,
+          }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
             Saved Addresses
@@ -96,7 +100,11 @@ const MoreIntro = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           onPress={() => handleNavigation("SavedCards")}
-          style={{ marginVertical: 12 }}
+          style={{
+            marginVertical: 12,
+            marginVertical: -2,
+            paddingVertical: 15,
+          }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
             Saved Cards
@@ -107,7 +115,11 @@ const MoreIntro = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           onPress={() => handleNavigation("CustomerService")}
-          style={{ marginVertical: 12 }}
+          style={{
+            marginVertical: 12,
+            marginVertical: -2,
+            paddingVertical: 15,
+          }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
             Customer Service
@@ -117,7 +129,11 @@ const MoreIntro = ({ navigation }) => {
           ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         </Text>
         <TouchableOpacity
-          style={{ marginVertical: 12 }}
+          style={{
+            marginVertical: 12,
+            marginVertical: -2,
+            paddingVertical: 15,
+          }}
           onPress={() => handleNavigation("AuthStack")}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
