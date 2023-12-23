@@ -9,7 +9,6 @@ import { EvilIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import AuthStack from "./AuthStack";
-import More from "../screens/More";
 import MoreNav from "./MoreNav";
 
 const Tab = createBottomTabNavigator();

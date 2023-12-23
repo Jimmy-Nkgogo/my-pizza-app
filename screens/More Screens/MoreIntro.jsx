@@ -4,6 +4,18 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 const MoreIntro = ({ navigation }) => {
   const [user, setUser] = useState("Jimmy Nkgogo");
+  const [userDetails, setUserDetails] = useState([
+    {
+      id: 1,
+      name: "Jimmy Nkgogo",
+      dateOfBirth: "--",
+      country: "South Africa",
+      mobileNumber: "0736746218",
+      email: "jimmy@gmail.com",
+      dietReq: "none",
+      communication: "SMS",
+    },
+  ]);
 
   const handleNavigation = (location, options) => {
     navigation.navigate(location, options);
@@ -24,7 +36,7 @@ const MoreIntro = ({ navigation }) => {
       >
         <FontAwesome5 name="user-circle" size={50} color="black" />
         <Text style={{ fontSize: 28, fontWeight: "900", letterSpacing: 1.5 }}>
-          {user}
+          {userDetails[0].name}
         </Text>
       </View>
       <Text style={styles.lineBreakStyle}>
@@ -33,7 +45,7 @@ const MoreIntro = ({ navigation }) => {
       {/* The buttons will go here to navigation to the other places */}
       <View>
         <TouchableOpacity
-          onPress={() => handleNavigation("ViewAccount", { user })}
+          onPress={() => handleNavigation("ViewAccount", { userDetails })}
           style={{ marginVertical: 12 }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
