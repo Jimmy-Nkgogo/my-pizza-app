@@ -9,6 +9,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import UserDetails from "../../components/userDetails";
+import ButtonsContainer from "../../components/ButtonsContainer";
 
 const ViewAccount = ({ navigation, route }) => {
   const user = route.params.userDetails;
@@ -35,18 +36,13 @@ const ViewAccount = ({ navigation, route }) => {
         </View>
       </View>
       <View style={styles.mainContent}>
-        <ScrollView style={{ width: "100%", }}>
+        <ScrollView>
           {user.map((item) => (
-            <UserDetails item={item} />
+            <>
+              <UserDetails item={item} />
+              <ButtonsContainer />
+            </>
           ))}
-          <View style={styles.btnContainer}>
-            <TouchableOpacity style={styles.btnLogOut}>
-              <Text>LOGOUT</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.btnNext}>
-              <Text style={styles.btnEditText}>EDIT</Text>
-            </TouchableOpacity>
-          </View>
         </ScrollView>
       </View>
     </View>
@@ -72,6 +68,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     width: "90%",
+    flex: 1,
   },
   dataTextStyle: {
     fontSize: 20,
@@ -79,35 +76,5 @@ const styles = StyleSheet.create({
   },
   dataViewStyle: {
     paddingVertical: 10,
-  },
-  btnContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    gap: 30,
-  },
-  btnEditText: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 18,
-    textAlign: "center",
-    letterSpacing: 2,
-  },
-  btnNext: {
-    backgroundColor: "blue",
-    height: 48,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 18,
-    marginVertical: 20,
-    flex: 1,
-  },
-  btnLogOut: {
-    borderWidth: 1,
-    height: 48,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 18,
-    marginVertical: 20,
-    flex: 1,
   },
 });
