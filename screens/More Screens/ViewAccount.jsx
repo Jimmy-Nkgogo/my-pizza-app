@@ -38,7 +38,7 @@ const ViewAccount = ({ navigation, route }) => {
         </View>
       </View>
       <View style={styles.mainContent}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {user.map((item) => (
             <>
               <UserDetails item={item} />
