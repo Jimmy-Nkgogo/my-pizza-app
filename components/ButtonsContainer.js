@@ -5,7 +5,7 @@ const ButtonsContainer = () => {
   return (
     <View style={styles.btnContainer}>
       <TouchableOpacity style={styles.btnLogOut}>
-        <Text>LOGOUT</Text>
+        <Text style={styles.btnLogOutText}>LOGOUT</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.btnNext}>
         <Text style={styles.btnEditText}>EDIT</Text>
@@ -35,16 +35,22 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 18,
+    borderRadius: 25,
     marginVertical: 20,
     flex: 1,
   },
+  btnLogOutText: {
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center",
+    letterSpacing: 2,
+  },
   btnLogOut: {
-    borderWidth: 1,
+    borderWidth: 2,
     height: 48,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 18,
+    borderRadius: 25,
     marginVertical: 20,
     flex: 1,
   },

@@ -6,6 +6,7 @@ import Favourites from "../screens/More Screens/Favourites";
 import SavedAddresses from "../screens/More Screens/SavedAddresses";
 import SavedCards from "../screens/More Screens/SavedCards";
 import CustomerService from "../screens/More Screens/CustomerService";
+import EditAccount from "../screens/More Screens/EditAccount";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ const MoreNav = () => {
     >
       <Stack.Screen name="MoreIntro" component={MoreIntro} />
       <Stack.Screen name="ViewAccount" component={ViewAccount} />
+      <Stack.Screen name="EditAccount" component={EditAccount} />
       <Stack.Screen name="OrderHistory" component={OrderHistory} />
       <Stack.Screen name="Favourites" component={Favourites} />
       <Stack.Screen name="SavedAddresses" component={SavedAddresses} />
