@@ -18,7 +18,11 @@ const MoreIntro = ({ navigation }) => {
   ]);
 
   const handleNavigation = (location, options) => {
-    navigation.navigate(location, options);
+    if (location === "AuthStack") {
+      navigation.replace("AuthStack");
+    } else {
+      navigation.navigate(location, options);
+    }
   };
   return (
     <View style={styles.container}>
@@ -45,7 +49,9 @@ const MoreIntro = ({ navigation }) => {
       {/* The buttons will go here to navigation to the other places */}
       <View>
         <TouchableOpacity
-          onPress={() => handleNavigation("ViewAccount", { userDetails, handleNavigation })}
+          onPress={() =>
+            handleNavigation("ViewAccount", { userDetails, handleNavigation })
+          }
           style={{ marginVertical: 12 }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
@@ -112,7 +118,7 @@ const MoreIntro = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           style={{ marginVertical: 12 }}
-          onPress={() => navigation.push("AuthStack")}
+          onPress={() => handleNavigation("AuthStack")}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
             Logout

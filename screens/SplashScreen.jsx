@@ -5,7 +5,7 @@ const SplashScreen = ({ navigation }) => {
   const image = require("../assets/romans-logo.jpeg");
 
   setTimeout(() => {
-    navigation.push("AuthStack");
+    navigation.replace("AuthStack");
   }, 3000);
   return (
     <View style={styles.container}>
