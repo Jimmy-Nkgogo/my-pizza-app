@@ -3,7 +3,7 @@ import React from "react";
 
 const UserDetails = ({ item }) => {
   return (
-    <View>
+    <View key={item.id}>
       <View style={styles.dataViewStyle}>
         <Text style={styles.lineBreakStyle}>
           ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
