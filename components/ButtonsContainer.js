@@ -1,13 +1,19 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 
-const ButtonsContainer = () => {
+const ButtonsContainer = ({ handleNavigation }) => {
   return (
     <View style={styles.btnContainer}>
-      <TouchableOpacity style={styles.btnLogOut}>
+      <TouchableOpacity
+        style={styles.btnLogOut}
+        onPress={() => handleNavigation("AuthStack")}
+      >
         <Text style={styles.btnLogOutText}>LOGOUT</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.btnNext}>
+      <TouchableOpacity
+        style={styles.btnEdit}
+        onPress={() => handleNavigation("EditAccount")}
+      >
         <Text style={styles.btnEditText}>EDIT</Text>
       </TouchableOpacity>
     </View>
@@ -30,7 +36,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     letterSpacing: 2,
   },
-  btnNext: {
+  btnEdit: {
     backgroundColor: "blue",
     height: 48,
     justifyContent: "center",

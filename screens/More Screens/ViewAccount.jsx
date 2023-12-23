@@ -13,6 +13,8 @@ import ButtonsContainer from "../../components/ButtonsContainer";
 
 const ViewAccount = ({ navigation, route }) => {
   const user = route.params.userDetails;
+  const handleNavigation = route.params.handleNavigation;
+
   return (
     <View style={styles.container}>
       <View
@@ -40,7 +42,7 @@ const ViewAccount = ({ navigation, route }) => {
           {user.map((item) => (
             <>
               <UserDetails item={item} />
-              <ButtonsContainer />
+              <ButtonsContainer handleNavigation={handleNavigation} />
             </>
           ))}
         </ScrollView>

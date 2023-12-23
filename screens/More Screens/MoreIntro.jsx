@@ -45,7 +45,7 @@ const MoreIntro = ({ navigation }) => {
       {/* The buttons will go here to navigation to the other places */}
       <View>
         <TouchableOpacity
-          onPress={() => handleNavigation("ViewAccount", { userDetails })}
+          onPress={() => handleNavigation("ViewAccount", { userDetails, handleNavigation })}
           style={{ marginVertical: 12 }}
         >
           <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
