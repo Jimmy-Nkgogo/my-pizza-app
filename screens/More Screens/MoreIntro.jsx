@@ -5,7 +5,6 @@ import LineBreak from "../../components/LineBreak";
 import ItemComponent from "../../components/ItemComponent";
 
 const MoreIntro = ({ navigation }) => {
-  const [user, setUser] = useState("Jimmy Nkgogo");
   const [userDetails, setUserDetails] = useState([
     {
       id: 1,
@@ -28,25 +27,14 @@ const MoreIntro = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          width: "90%",
-          height: 60,
-          gap: 10,
-          paddingLeft: 12,
-          marginBottom: 5,
-        }}
-      >
+      <View style={styles.userView}>
         <FontAwesome5 name="user-circle" size={50} color="black" />
         <Text style={{ fontSize: 28, fontWeight: "900", letterSpacing: 1.5 }}>
           {userDetails[0].name}
         </Text>
       </View>
       <LineBreak />
-      {/* The buttons will go here to navigation to the other places */}
+
       <View>
         <ItemComponent
           title="View Your Account"
@@ -54,9 +42,7 @@ const MoreIntro = ({ navigation }) => {
           handleNavigation={handleNavigation}
           navigateTo="ViewAccount"
         />
-
         <LineBreak />
-
         <ItemComponent
           title="Order History"
           userDetails={userDetails}
@@ -64,7 +50,6 @@ const MoreIntro = ({ navigation }) => {
           navigateTo="OrderHistory"
         />
         <LineBreak />
-
         <ItemComponent
           title="Your Favourites"
           userDetails={userDetails}
@@ -72,7 +57,6 @@ const MoreIntro = ({ navigation }) => {
           navigateTo="Favourites"
         />
         <LineBreak />
-
         <ItemComponent
           title="Saved Addresses"
           userDetails={userDetails}
@@ -80,7 +64,6 @@ const MoreIntro = ({ navigation }) => {
           navigateTo="SavedAddresses"
         />
         <LineBreak />
-
         <ItemComponent
           title="Saved Cards"
           userDetails={userDetails}
@@ -88,7 +71,6 @@ const MoreIntro = ({ navigation }) => {
           navigateTo="SavedCards"
         />
         <LineBreak />
-
         <ItemComponent
           title="Customer Service"
           userDetails={userDetails}
@@ -96,7 +78,6 @@ const MoreIntro = ({ navigation }) => {
           navigateTo="CustomerService"
         />
         <LineBreak />
-
         <ItemComponent
           title="Logout"
           userDetails={userDetails}
@@ -118,8 +99,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingHorizontal: 5,
   },
-  lineBreakStyle: {
-    color: "#888",
-    letterSpacing: -2,
+  userView: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    width: "90%",
+    height: 60,
+    gap: 10,
+    paddingLeft: 12,
+    marginBottom: 5,
   },
 });
