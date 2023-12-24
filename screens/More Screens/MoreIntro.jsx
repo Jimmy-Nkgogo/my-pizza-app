@@ -88,31 +88,21 @@ const MoreIntro = ({ navigation }) => {
           navigateTo="SavedCards"
         />
         <LineBreak />
-        <TouchableOpacity
-          onPress={() => handleNavigation("CustomerService")}
-          style={{
-            marginVertical: 12,
-            marginVertical: -2,
-            paddingVertical: 15,
-          }}
-        >
-          <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
-            Customer Service
-          </Text>
-        </TouchableOpacity>
+
+        <ItemComponent
+          title="Customer Service"
+          userDetails={userDetails}
+          handleNavigation={handleNavigation}
+          navigateTo="CustomerService"
+        />
         <LineBreak />
-        <TouchableOpacity
-          style={{
-            marginVertical: 12,
-            marginVertical: -2,
-            paddingVertical: 15,
-          }}
-          onPress={() => handleNavigation("AuthStack")}
-        >
-          <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
-            Logout
-          </Text>
-        </TouchableOpacity>
+
+        <ItemComponent
+          title="Logout"
+          userDetails={userDetails}
+          handleNavigation={handleNavigation}
+          navigateTo="AuthStack"
+        />
         <LineBreak />
       </View>
     </View>
