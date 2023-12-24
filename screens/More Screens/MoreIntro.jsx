@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
+import LineBreak from "../../components/LineBreak";
 
 const MoreIntro = ({ navigation }) => {
   const [user, setUser] = useState("Jimmy Nkgogo");
@@ -43,9 +44,7 @@ const MoreIntro = ({ navigation }) => {
           {userDetails[0].name}
         </Text>
       </View>
-      <Text style={styles.lineBreakStyle}>
-        ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      </Text>
+      <LineBreak />
       {/* The buttons will go here to navigation to the other places */}
       <View>
         <TouchableOpacity
@@ -58,9 +57,7 @@ const MoreIntro = ({ navigation }) => {
             View Your Account
           </Text>
         </TouchableOpacity>
-        <Text style={styles.lineBreakStyle}>
-          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        </Text>
+        <LineBreak />
         <TouchableOpacity
           onPress={() => handleNavigation("OrderHistory")}
           style={{ marginVertical: 12 }}
@@ -69,9 +66,7 @@ const MoreIntro = ({ navigation }) => {
             Order History
           </Text>
         </TouchableOpacity>
-        <Text style={styles.lineBreakStyle}>
-          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        </Text>
+        <LineBreak />
         <TouchableOpacity
           onPress={() => handleNavigation("Favourites")}
           style={{ marginVertical: 12 }}
@@ -80,9 +75,7 @@ const MoreIntro = ({ navigation }) => {
             You Favourites
           </Text>
         </TouchableOpacity>
-        <Text style={styles.lineBreakStyle}>
-          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        </Text>
+        <LineBreak />
         <TouchableOpacity
           onPress={() => handleNavigation("SavedAddresses")}
           style={{
@@ -95,9 +88,7 @@ const MoreIntro = ({ navigation }) => {
             Saved Addresses
           </Text>
         </TouchableOpacity>
-        <Text style={styles.lineBreakStyle}>
-          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        </Text>
+        <LineBreak />
         <TouchableOpacity
           onPress={() => handleNavigation("SavedCards")}
           style={{
@@ -110,9 +101,7 @@ const MoreIntro = ({ navigation }) => {
             Saved Cards
           </Text>
         </TouchableOpacity>
-        <Text style={styles.lineBreakStyle}>
-          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        </Text>
+        <LineBreak />
         <TouchableOpacity
           onPress={() => handleNavigation("CustomerService")}
           style={{
@@ -125,9 +114,7 @@ const MoreIntro = ({ navigation }) => {
             Customer Service
           </Text>
         </TouchableOpacity>
-        <Text style={styles.lineBreakStyle}>
-          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        </Text>
+        <LineBreak />
         <TouchableOpacity
           style={{
             marginVertical: 12,
@@ -140,9 +127,7 @@ const MoreIntro = ({ navigation }) => {
             Logout
           </Text>
         </TouchableOpacity>
-        <Text style={styles.lineBreakStyle}>
-          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        </Text>
+        <LineBreak />
       </View>
     </View>
   );
