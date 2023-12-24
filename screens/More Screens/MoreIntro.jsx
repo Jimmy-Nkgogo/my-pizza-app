@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import LineBreak from "../../components/LineBreak";
+import ItemComponent from "../../components/ItemComponent";
 
 const MoreIntro = ({ navigation }) => {
   const [user, setUser] = useState("Jimmy Nkgogo");
@@ -47,60 +48,45 @@ const MoreIntro = ({ navigation }) => {
       <LineBreak />
       {/* The buttons will go here to navigation to the other places */}
       <View>
-        <TouchableOpacity
-          onPress={() =>
-            handleNavigation("ViewAccount", { userDetails, handleNavigation })
-          }
-          style={{ marginVertical: 12 }}
-        >
-          <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
-            View Your Account
-          </Text>
-        </TouchableOpacity>
+        <ItemComponent
+          title="View Your Account"
+          userDetails={userDetails}
+          handleNavigation={handleNavigation}
+          navigateTo="ViewAccount"
+        />
+
         <LineBreak />
-        <TouchableOpacity
-          onPress={() => handleNavigation("OrderHistory")}
-          style={{ marginVertical: 12 }}
-        >
-          <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
-            Order History
-          </Text>
-        </TouchableOpacity>
+
+        <ItemComponent
+          title="Order History"
+          userDetails={userDetails}
+          handleNavigation={handleNavigation}
+          navigateTo="OrderHistory"
+        />
         <LineBreak />
-        <TouchableOpacity
-          onPress={() => handleNavigation("Favourites")}
-          style={{ marginVertical: 12 }}
-        >
-          <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
-            You Favourites
-          </Text>
-        </TouchableOpacity>
+
+        <ItemComponent
+          title="Your Favourites"
+          userDetails={userDetails}
+          handleNavigation={handleNavigation}
+          navigateTo="Favourites"
+        />
         <LineBreak />
-        <TouchableOpacity
-          onPress={() => handleNavigation("SavedAddresses")}
-          style={{
-            marginVertical: 12,
-            marginVertical: -2,
-            paddingVertical: 15,
-          }}
-        >
-          <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
-            Saved Addresses
-          </Text>
-        </TouchableOpacity>
+
+        <ItemComponent
+          title="Saved Addresses"
+          userDetails={userDetails}
+          handleNavigation={handleNavigation}
+          navigateTo="SavedAddresses"
+        />
         <LineBreak />
-        <TouchableOpacity
-          onPress={() => handleNavigation("SavedCards")}
-          style={{
-            marginVertical: 12,
-            marginVertical: -2,
-            paddingVertical: 15,
-          }}
-        >
-          <Text style={{ fontSize: 24, fontWeight: "bold", color: "#333" }}>
-            Saved Cards
-          </Text>
-        </TouchableOpacity>
+
+        <ItemComponent
+          title="Saved Cards"
+          userDetails={userDetails}
+          handleNavigation={handleNavigation}
+          navigateTo="SavedCards"
+        />
         <LineBreak />
         <TouchableOpacity
           onPress={() => handleNavigation("CustomerService")}
