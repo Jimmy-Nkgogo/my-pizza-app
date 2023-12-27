@@ -13,7 +13,7 @@ const BackButton = ({ title }) => {
         alignItems: "center",
         paddingVertical: 10,
       }}
-      onPress={() => navigation.navigate("Menu")}
+      onPress={() => navigation.goBack()}
     >
       <Ionicons name="chevron-back-outline" size={24} color="black" />
 
