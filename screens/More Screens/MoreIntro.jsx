@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import LineBreak from "../../components/LineBreak";
 import ItemComponent from "../../components/ItemComponent";
+import packageJson from "../../package.json";
 
 const MoreIntro = ({ navigation }) => {
   const [userDetails, setUserDetails] = useState([
@@ -34,7 +35,6 @@ const MoreIntro = ({ navigation }) => {
         </Text>
       </View>
       <LineBreak />
-
       <View>
         <ItemComponent
           title="View Your Account"
@@ -85,6 +85,16 @@ const MoreIntro = ({ navigation }) => {
           navigateTo="AuthStack"
         />
         <LineBreak />
+      </View>
+      <View
+        style={{
+          position: "absolute",
+          bottom: 0,
+          width: "100%",
+          alignItems: "flex-end",
+        }}
+      >
+        <Text>v{packageJson.version}</Text>
       </View>
     </View>
   );

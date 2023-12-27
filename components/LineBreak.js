@@ -15,5 +15,6 @@ const styles = StyleSheet.create({
   lineBreakStyle: {
     color: "#888",
     letterSpacing: -2,
+    
   },
 });
