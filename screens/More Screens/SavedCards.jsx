@@ -19,9 +19,21 @@ const SavedCards = () => {
   const [cvv, setCvv] = useState("");
   const [emptyCard, setEmptyCard] = useState(true);
 
+  const handleAddNewCard = () => {
+    const newItem = {
+      id: userCard.length + 1, // just a prototype for adding a new id
+      cardHolder,
+      cardNumber,
+      expDate,
+      cvv,
+    };
+    setUserCard(newItem);
+  };
+
   return (
     <View style={styles.container}>
       <BackButton title="Payment Options" />
+      {emptyCard && <Text>Money</Text>}
       <View style={{ backgroundColor: "whitesmoke", flex: 1, width: "95%" }}>
         <Text style={styles.text}>Add new card</Text>
       </View>
