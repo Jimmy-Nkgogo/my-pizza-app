@@ -8,6 +8,7 @@ import {
 import React, { useState } from "react";
 import BackButton from "../../components/BackButton";
 import LineBreak from "../../components/LineBreak";
+import AddCardComponent from "../../components/AddCardComponent";
 
 const SavedCards = () => {
   const [userCard, setUserCard] = useState([
@@ -51,44 +52,36 @@ const SavedCards = () => {
         )}
         <Text style={styles.text}>Add new card</Text>
         <View style={styles.form}>
-          <View style={{ flexDirection: "row" }}>
-            <Text>Card Holder</Text>
-            <TextInput
-              placeholder="John Doe"
-              value={cardHolder}
-              onChangeText={(text) => setCardHolder(text)}
-            />
-          </View>
+          <AddCardComponent
+            title="Card Holder"
+            placeholder="John Doe"
+            value={cardHolder}
+            setValue={setCardHolder}
+          />
           <LineBreak />
-          <View style={{ flexDirection: "row" }}>
-            <Text>Card Number</Text>
-            <TextInput
-              placeholder="John Doe"
-              value={cardNumber}
-              onChangeText={(text) => setCardNumber(text)}
-            />
-          </View>
+          <AddCardComponent
+            title="Card Number"
+            placeholder="1234 5678 1234 5678"
+            value={cardNumber}
+            setValue={setCardNumber}
+          />
           <LineBreak />
-          <View style={{ flexDirection: "row" }}>
-            <Text>Expiry Date</Text>
-            <TextInput
-              placeholder="10/27"
-              value={expDate}
-              onChangeText={(text) => setExpDate(text)}
-            />
-          </View>
+          <AddCardComponent
+            title="Expiry Date"
+            placeholder="10/27"
+            value={expDate}
+            setValue={setExpDate}
+          />
           <LineBreak />
-          <View style={{ flexDirection: "row" }}>
-            <Text>CVV</Text>
-            <TextInput
-              placeholder="123"
-              value={cvv}
-              onChangeText={(text) => setCvv(text)}
-            />
-          </View>
+          <AddCardComponent
+            title="CVV"
+            placeholder="123"
+            value={expDate}
+            setValue={setExpDate}
+          />
           <LineBreak />
         </View>
-        <TouchableOpacity onPress={handleAddNewCard}>
+        <TouchableOpacity onPress={handleAddNewCard} style={styles.btnAddCard}>
           <Text>ADD NEW CARD</Text>
         </TouchableOpacity>
       </View>
