@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
 import React, { useState } from "react";
 import BackButton from "../../components/BackButton";
 import LineBreak from "../../components/LineBreak";
@@ -17,7 +23,7 @@ const SavedCards = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [expDate, setExpDate] = useState("");
   const [cvv, setCvv] = useState("");
-  const [emptyCard, setEmptyCard] = useState(true);
+  const [emptyCard, setEmptyCard] = useState(false);
 
   const handleAddNewCard = () => {
     const newItem = {
@@ -28,14 +34,63 @@ const SavedCards = () => {
       cvv,
     };
     setUserCard(newItem);
+    setTimeout(() => {
+      setEmptyCard(true);
+    }, timeout);
   };
 
   return (
     <View style={styles.container}>
       <BackButton title="Payment Options" />
-      {emptyCard && <Text>Money</Text>}
       <View style={{ backgroundColor: "whitesmoke", flex: 1, width: "95%" }}>
+        {emptyCard && (
+          <View>
+            <Text style={styles.text}>Saved Cards</Text>
+            <Text>Money</Text>
+          </View>
+        )}
         <Text style={styles.text}>Add new card</Text>
+        <View style={styles.form}>
+          <View style={{ flexDirection: "row" }}>
+            <Text>Card Holder</Text>
+            <TextInput
+              placeholder="John Doe"
+              value={cardHolder}
+              onChangeText={(text) => setCardHolder(text)}
+            />
+          </View>
+          <LineBreak />
+          <View style={{ flexDirection: "row" }}>
+            <Text>Card Number</Text>
+            <TextInput
+              placeholder="John Doe"
+              value={cardNumber}
+              onChangeText={(text) => setCardNumber(text)}
+            />
+          </View>
+          <LineBreak />
+          <View style={{ flexDirection: "row" }}>
+            <Text>Expiry Date</Text>
+            <TextInput
+              placeholder="10/27"
+              value={expDate}
+              onChangeText={(text) => setExpDate(text)}
+            />
+          </View>
+          <LineBreak />
+          <View style={{ flexDirection: "row" }}>
+            <Text>CVV</Text>
+            <TextInput
+              placeholder="123"
+              value={cvv}
+              onChangeText={(text) => setCvv(text)}
+            />
+          </View>
+          <LineBreak />
+        </View>
+        <TouchableOpacity onPress={handleAddNewCard}>
+          <Text>ADD NEW CARD</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
