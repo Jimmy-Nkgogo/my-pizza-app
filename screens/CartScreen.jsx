@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import BackButton from "../components/BackButton";
 
-const CartScreen = ({ navigation }) => {
+const CartScreen = () => {
   return (
     <View style={styles.container}>
       <BackButton title="My Cart" />

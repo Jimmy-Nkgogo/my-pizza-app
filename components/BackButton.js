@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -9,17 +9,25 @@ const BackButton = ({ title }) => {
     <TouchableOpacity
       style={{
         flexDirection: "row",
-        width: "95%",
+        width: "90%",
         alignItems: "center",
         paddingVertical: 10,
-        gap: 130,
       }}
       onPress={() => navigation.navigate("Menu")}
     >
       <Ionicons name="chevron-back-outline" size={24} color="black" />
-      <Text style={{ textAlign: "center", fontWeight: "bold", fontSize: 24 }}>
-        {title}
-      </Text>
+
+      <View
+        style={{
+          width: "90%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Text style={{ textAlign: "center", fontWeight: "bold", fontSize: 24 }}>
+          {title}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 };

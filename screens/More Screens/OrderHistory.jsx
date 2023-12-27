@@ -1,35 +1,24 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import BackButton from "../../components/BackButton";
 
 const OrderHistory = () => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={{
-          flexDirection: "row",
-          width: "95%",
-          alignItems: "center",
-          paddingVertical: 10,
-          gap: 130,
-        }}
-        onPress={() => navigation.navigate("Menu")}
-      >
-        <Ionicons name="chevron-back-outline" size={24} color="black" />
-        <Text style={{ textAlign: "center", fontWeight: "bold", fontSize: 24 }}>
-          My Cart
-        </Text>
-      </TouchableOpacity>
+      <BackButton title="Order History" />
       <View style={styles.textView}>
         <Text
           style={{
             fontWeight: "bold",
             width: "90%",
             textAlign: "center",
-            fontSize: 17
+            fontSize: 17,
           }}
         >
-          Your order histroy is empty. Let's change that! Dive into our menu full of tasty delights. Once you place an order, you'll be able to see all the details here.
+          Your order histroy is empty. Let's change that! Dive into our menu
+          full of tasty delights. Once you place an order, you'll be able to see
+          all the details here.
         </Text>
       </View>
     </View>
