@@ -1,25 +1,12 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
+import BackButton from "../components/BackButton";
 
 const CartScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={{
-          flexDirection: "row",
-          width: "95%",
-          alignItems: "center",
-          paddingVertical: 10,
-          gap: 130,
-        }}
-        onPress={() => navigation.navigate("Menu")}
-      >
-        <Ionicons name="chevron-back-outline" size={24} color="black" />
-        <Text style={{ textAlign: "center", fontWeight: "bold", fontSize: 24 }}>
-          My Cart
-        </Text>
-      </TouchableOpacity>
+      <BackButton title="My Cart" />
       <View style={styles.textView}>
         <Text
           style={{
