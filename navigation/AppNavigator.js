@@ -42,7 +42,7 @@ const BottomTabs = () => {
       screenOptions={{
         tabBarActiveTintColor: "black",
         headerStyle: {
-          height: 70,
+          height: 60,
         },
       }}
     >
