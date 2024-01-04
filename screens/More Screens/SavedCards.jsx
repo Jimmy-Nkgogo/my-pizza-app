@@ -13,6 +13,7 @@ import LineBreak from "../../components/LineBreak";
 import AddCardComponent from "../../components/AddCardComponent";
 import { FontAwesome } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import SavedCardComponent from "../../components/SavedCardComponent";
 
 const SavedCards = () => {
   const [userCards, setUserCards] = useState([
@@ -34,15 +35,6 @@ const SavedCards = () => {
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [isRequiredError, setIsRequiredError] = useState(false);
-
-  function ShowEllipse(text) {
-    let returned;
-    if (text.length > 4) {
-      return (returned = text.slice(text.length - 4) + "...");
-    } else {
-      return text;
-    }
-  }
 
   const handleAddNewCard = () => {
     if (cardNumber.trim() == "") {
@@ -90,43 +82,10 @@ const SavedCards = () => {
       <BackButton title="Payment Options" />
       <View style={{ flex: 1, width: "95%" }}>
         {emptyCard && userCards.length && (
-          <View>
+          <>
             <Text style={styles.text}>Saved Cards</Text>
-            {userCards.map((userCard) => (
-              <View
-                key={userCard.id}
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
-              >
-                <View
-                  style={{
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "80%",
-                    backgroundColor: "red",
-                  }}
-                >
-                  {userCard.cardNumber.startsWith("4") ? (
-                    <FontAwesome name="cc-visa" size={24} color="black" />
-                  ) : (
-                    <FontAwesome name="cc-mastercard" size={24} color="black" />
-                  )}
-                  <Text>{ShowEllipse(userCard.cardNumber)}</Text>
-                  <Text>{userCard.cardType}</Text>
-                  {console.log(userCard.cardType)}
-                  <Text>EXP</Text>
-                  <Text>{userCard.expDate}</Text>
-                </View>
-                <TouchableOpacity onPress={() => handleRemoveCard(userCard.id)}>
-                  <Entypo name="cross" size={24} color="black" />
-                </TouchableOpacity>
-              </View>
-            ))}
-          </View>
+            <SavedCardComponent userCards={userCards}/>
+          </>
         )}
         <Text style={styles.text}>Add new card</Text>
         <View style={styles.form}>
@@ -162,11 +121,16 @@ const SavedCards = () => {
             maxLength={3}
             required={true}
           />
-          {isRequiredError && (
-            <Text style={{ color: "red" }}>This field is required</Text>
-          )}
+
           <LineBreak />
         </View>
+        {isRequiredError && (
+          <Text
+            style={{ color: "red", fontWeight: "500", textAlign: "center" }}
+          >
+            All FIELDS ARE REQUIRED!
+          </Text>
+        )}
       </View>
       <TouchableOpacity
         onPress={handleAddNewCard}
