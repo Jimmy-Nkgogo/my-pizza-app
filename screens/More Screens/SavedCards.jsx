@@ -4,12 +4,15 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  ActivityIndicator,
+  KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
 import BackButton from "../../components/BackButton";
 import LineBreak from "../../components/LineBreak";
 import AddCardComponent from "../../components/AddCardComponent";
 import { FontAwesome } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 
 const SavedCards = () => {
   const [userCards, setUserCards] = useState([
@@ -28,6 +31,8 @@ const SavedCards = () => {
   const [cvv, setCvv] = useState("");
   const [emptyCard, setEmptyCard] = useState(false);
   const [cardType, setCardType] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   function ShowEllipse(text) {
     let returned;
@@ -53,21 +58,48 @@ const SavedCards = () => {
       cardType,
     };
     setUserCards([...userCards, newItem]);
+    setLoading(true);
+    setDisabled(true);
+
     setTimeout(() => {
       setEmptyCard(true);
+      setLoading(false);
+      setDisabled(false);
     }, 2000);
   };
 
+  const handleRemoveCard = (id) => {
+    const listItem = userCards.filter((userCard) => {
+      userCard.id !== id;
+    });
+    setUserCards([...userCards, listItem]);
+  };
+
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <BackButton title="Payment Options" />
       <View style={{ flex: 1, width: "95%" }}>
         {emptyCard && (
           <View>
             <Text style={styles.text}>Saved Cards</Text>
             {userCards.map((userCard) => (
-              <View key={userCard.id}>
-                <View style={{ flexDirection: "row", gap: 10 }}>
+              <View
+                key={userCard.id}
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "80%",
+                    backgroundColor: "red",
+                  }}
+                >
                   {userCard.cardNumber.startsWith("4") ? (
                     <FontAwesome name="cc-visa" size={24} color="black" />
                   ) : (
@@ -78,6 +110,9 @@ const SavedCards = () => {
                   <Text>EXP</Text>
                   <Text>{userCard.expDate}</Text>
                 </View>
+                <TouchableOpacity onPress={(id) => handleRemoveCard(id)}>
+                  <Entypo name="cross" size={24} color="black" />
+                </TouchableOpacity>
               </View>
             ))}
           </View>
@@ -117,20 +152,27 @@ const SavedCards = () => {
           <LineBreak />
         </View>
       </View>
-      <TouchableOpacity onPress={handleAddNewCard} style={styles.btnAddCard}>
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: 18,
-            textAlign: "center",
-            letterSpacing: 2,
-          }}
-        >
-          ADD NEW CARD
-        </Text>
+      <TouchableOpacity
+        onPress={handleAddNewCard}
+        style={styles.btnAddCard}
+        disabled={disabled}
+      >
+        {loading && <ActivityIndicator />}
+        {!loading && (
+          <Text
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              fontSize: 18,
+              textAlign: "center",
+              letterSpacing: 2,
+            }}
+          >
+            ADD NEW CARD
+          </Text>
+        )}
       </TouchableOpacity>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
