@@ -33,6 +33,7 @@ const SavedCards = () => {
   const [cardType, setCardType] = useState("");
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [isRequiredError, setIsRequiredError] = useState(false);
 
   function ShowEllipse(text) {
     let returned;
@@ -44,42 +45,51 @@ const SavedCards = () => {
   }
 
   const handleAddNewCard = () => {
-    if (cardNumber.startsWith("4")) {
-      setCardType("Visacard");
-    } else if (cardNumber.startsWith("2") || cardNumber.startsWith("5")) {
-      setCardType("Mastercard");
-    }
-    const newItem = {
-      id: userCards.length + 1, // just a prototype for adding a new id
-      cardHolder,
-      cardNumber,
-      expDate,
-      cvv,
-      cardType,
-    };
-    setUserCards([...userCards, newItem]);
-    setLoading(true);
-    setDisabled(true);
+    if (cardNumber.trim() == "") {
+      setIsRequiredError(true);
+    } else {
+      if (cardNumber.startsWith("4")) {
+        setCardType("Visacard");
+        console.log("Setting to Visa");
+      } else if (cardNumber.startsWith("2") || cardNumber.startsWith("5")) {
+        setCardType("Mastercard");
+        console.log("Setting to Master");
+      }
+      const newItem = {
+        id: Math.random() * 1000, // just a prototype for adding a new id
+        cardHolder,
+        cardNumber,
+        expDate,
+        cvv,
+        cardType,
+      };
+      setUserCards([...userCards, newItem]);
+      setLoading(true);
+      setDisabled(true);
+      setCardHolder("");
+      setCardNumber("");
+      setExpDate("");
+      setCvv("");
 
-    setTimeout(() => {
-      setEmptyCard(true);
-      setLoading(false);
-      setDisabled(false);
-    }, 2000);
+      console.log(cardType);
+      setTimeout(() => {
+        setEmptyCard(true);
+        setLoading(false);
+        setDisabled(false);
+      }, 2000);
+    }
   };
 
   const handleRemoveCard = (id) => {
-    const listItem = userCards.filter((userCard) => {
-      userCard.id !== id;
-    });
-    setUserCards([...userCards, listItem]);
+    const listItem = userCards.filter((userCard) => userCard.id != id);
+    setUserCards(listItem);
   };
 
   return (
     <KeyboardAvoidingView style={styles.container}>
       <BackButton title="Payment Options" />
       <View style={{ flex: 1, width: "95%" }}>
-        {emptyCard && (
+        {emptyCard && userCards.length && (
           <View>
             <Text style={styles.text}>Saved Cards</Text>
             {userCards.map((userCard) => (
@@ -107,10 +117,11 @@ const SavedCards = () => {
                   )}
                   <Text>{ShowEllipse(userCard.cardNumber)}</Text>
                   <Text>{userCard.cardType}</Text>
+                  {console.log(userCard.cardType)}
                   <Text>EXP</Text>
                   <Text>{userCard.expDate}</Text>
                 </View>
-                <TouchableOpacity onPress={(id) => handleRemoveCard(id)}>
+                <TouchableOpacity onPress={() => handleRemoveCard(userCard.id)}>
                   <Entypo name="cross" size={24} color="black" />
                 </TouchableOpacity>
               </View>
@@ -132,6 +143,7 @@ const SavedCards = () => {
             value={cardNumber}
             setValue={setCardNumber}
             maxLength={16}
+            required={true}
           />
           <LineBreak />
           <AddCardComponent
@@ -148,7 +160,11 @@ const SavedCards = () => {
             value={cvv}
             setValue={setCvv}
             maxLength={3}
+            required={true}
           />
+          {isRequiredError && (
+            <Text style={{ color: "red" }}>This field is required</Text>
+          )}
           <LineBreak />
         </View>
       </View>

@@ -7,6 +7,7 @@ const AddCardComponent = ({
   value,
   setValue,
   maxLength,
+  required,
 }) => {
   return (
     <View
@@ -23,6 +24,7 @@ const AddCardComponent = ({
         value={value}
         onChangeText={(text) => setValue(text)}
         maxLength={maxLength}
+        required={required}
       />
     </View>
   );
