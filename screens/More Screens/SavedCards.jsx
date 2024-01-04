@@ -96,7 +96,7 @@ const SavedCards = () => {
     <KeyboardAvoidingView style={styles.container}>
       <BackButton title="Payment Options" />
       <View style={{ flex: 1, width: "95%" }}>
-        {emptyCard && userCards.length && (
+        {emptyCard && userCards.length > 0 && (
           <>
             <Text style={{ color: "#777" }}>Saved Cards</Text>
             <SavedCardComponent

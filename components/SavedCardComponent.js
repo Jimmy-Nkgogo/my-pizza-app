@@ -21,21 +21,20 @@ const SavedCardComponent = ({ userCards, handleRemoveCard, ShowEllipse }) => {
               flexDirection: "row",
               alignItems: "center",
               width: "80%",
-              backgroundColor: "red",
               justifyContent: "space-between",
               marginBottom: 10,
             }}
           >
-            {userCard.cardNumber.startsWith("4") ? (
+            {/* {userCard.cardNumber.startsWith("4") ? (
               <FontAwesome name="cc-visa" size={24} color="black" />
             ) : (
               <FontAwesome name="cc-mastercard" size={24} color="black" />
-            )}
-            <Text>{ShowEllipse(userCard.cardNumber)}</Text>
-            <Text>{userCard.cardType}</Text>
-            {console.log(index, userCard.cardType)}
-            <Text>EXP</Text>
-            <Text>{userCard.expDate}</Text>
+            )} */}
+            {/* <Text>{ShowEllipse(userCard.cardNumber)}</Text> */}
+            {/* <Text>{userCard.cardType}</Text> */}
+            {/* {console.log(index, userCard.cardType)} */}
+            {/* <Text>EXP</Text> */}
+            {/* <Text>{userCard.expDate}</Text> */}
           </View>
           <TouchableOpacity onPress={() => handleRemoveCard(userCard.id)}>
             <Entypo name="cross" size={24} color="black" />
