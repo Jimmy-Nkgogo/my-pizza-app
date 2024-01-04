@@ -31,13 +31,27 @@ const SavedCards = () => {
   const [expDate, setExpDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [emptyCard, setEmptyCard] = useState(false);
-  const [cardType, setCardType] = useState("");
+  const [cardType, setCardType] = useState("Visacard");
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [isRequiredError, setIsRequiredError] = useState(false);
 
+  function ShowEllipse(text) {
+    let returned;
+    if (text.length > 4) {
+      return (returned = text.slice(text.length - 4) + "...");
+    } else {
+      return text;
+    }
+  }
+
   const handleAddNewCard = () => {
-    if (cardNumber.trim() == "") {
+    if (
+      cardNumber.trim() == "" ||
+      cardHolder.trim() == "" ||
+      expDate.trim() == "" ||
+      cvv.trim() == ""
+    ) {
       setIsRequiredError(true);
     } else {
       if (cardNumber.startsWith("4")) {
@@ -46,6 +60,7 @@ const SavedCards = () => {
       } else if (cardNumber.startsWith("2") || cardNumber.startsWith("5")) {
         setCardType("Mastercard");
         console.log("Setting to Master");
+        console.log(cardType);
       }
       const newItem = {
         id: Math.random() * 1000, // just a prototype for adding a new id
@@ -83,8 +98,12 @@ const SavedCards = () => {
       <View style={{ flex: 1, width: "95%" }}>
         {emptyCard && userCards.length && (
           <>
-            <Text style={styles.text}>Saved Cards</Text>
-            <SavedCardComponent userCards={userCards}/>
+            <Text style={{ color: "#777" }}>Saved Cards</Text>
+            <SavedCardComponent
+              userCards={userCards}
+              handleRemoveCard={handleRemoveCard}
+              ShowEllipse={ShowEllipse}
+            />
           </>
         )}
         <Text style={styles.text}>Add new card</Text>

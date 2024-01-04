@@ -1,20 +1,13 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
-import { FontAwesome,Entypo } from "@expo/vector-icons";
+import { FontAwesome, Entypo } from "@expo/vector-icons";
 
-const SavedCardComponent = ({ userCards }) => {
-  function ShowEllipse(text) {
-    let returned;
-    if (text.length > 4) {
-      return (returned = text.slice(text.length - 4) + "...");
-    } else {
-      return text;
-    }
-  }
+const SavedCardComponent = ({ userCards, handleRemoveCard, ShowEllipse }) => {
 
   return (
     <View>
-      {userCards.map((userCard) => (
+      
+      {userCards.map((userCard, index) => (
         <View
           key={userCard.id}
           style={{
@@ -27,9 +20,10 @@ const SavedCardComponent = ({ userCards }) => {
             style={{
               flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-between",
               width: "80%",
               backgroundColor: "red",
+              justifyContent: "space-between",
+              marginBottom: 10,
             }}
           >
             {userCard.cardNumber.startsWith("4") ? (
@@ -39,7 +33,7 @@ const SavedCardComponent = ({ userCards }) => {
             )}
             <Text>{ShowEllipse(userCard.cardNumber)}</Text>
             <Text>{userCard.cardType}</Text>
-            {console.log(userCard.cardType)}
+            {console.log(index, userCard.cardType)}
             <Text>EXP</Text>
             <Text>{userCard.expDate}</Text>
           </View>
