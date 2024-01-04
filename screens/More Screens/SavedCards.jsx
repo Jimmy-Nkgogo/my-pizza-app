@@ -122,6 +122,7 @@ const SavedCards = () => {
             setValue={setCardNumber}
             maxLength={16}
             required={true}
+            keyboardTypeValue="numeric"
           />
           <LineBreak />
           <AddCardComponent
@@ -139,10 +140,9 @@ const SavedCards = () => {
             setValue={setCvv}
             maxLength={3}
             required={true}
+            keyboardTypeValue="numeric"
           />
-
           <LineBreak />
-        </View>
         {isRequiredError && (
           <Text
             style={{ color: "red", fontWeight: "500", textAlign: "center" }}
@@ -150,6 +150,7 @@ const SavedCards = () => {
             All FIELDS ARE REQUIRED!
           </Text>
         )}
+        </View>
       </View>
       <TouchableOpacity
         onPress={handleAddNewCard}
@@ -194,5 +195,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 30,
     marginVertical: 20,
+  },
+  form: {
+    alignItems: "center",
+    flex: 1,
   },
 });

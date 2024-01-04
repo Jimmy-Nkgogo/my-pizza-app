@@ -6,7 +6,6 @@ const SavedCardComponent = ({ userCards, handleRemoveCard, ShowEllipse }) => {
 
   return (
     <View>
-      
       {userCards.map((userCard, index) => (
         <View
           key={userCard.id}
