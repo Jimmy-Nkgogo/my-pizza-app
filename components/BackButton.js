@@ -32,6 +32,10 @@ const BackButton = ({ title }) => {
   );
 };
 
+BackButton.defaultProps = {
+  title: "Back",
+};
+
 export default BackButton;
 
 const styles = StyleSheet.create({});
