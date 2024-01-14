@@ -6,13 +6,10 @@ import email from 'react-native-email'
 const CustomerService = () => {
 
   const  handleEmail = () => {
-    const to = ['thabonkgogo2001@email.com', 'mphojimmy206@gmail.com'] // string or array of email addresses
+    const to = 'feedback@romanspizza.com' // string or array of email addresses
     email(to, {
         // Optional additional arguments
-        cc: ['bazzy@moo.com', 'doooo@daaa.com'], // string or array of email addresses
-        bcc: 'mee@mee.com', // string or array of email addresses
-        subject: 'Show how to use',
-        body: 'Some body right here', 
+         
         checkCanOpen: false // Call Linking.canOpenURL prior to Linking.openURL
     }).catch(console.error)
 }
