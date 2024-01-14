@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import BackButton from "../../components/BackButton";
-import email from 'react-native-email'
+import email from 'react-native-email';
+import globalStyles from "../../globalBtnStyle";
 
 const CustomerService = () => {
 
@@ -30,8 +31,8 @@ const CustomerService = () => {
           Drop us a line and we'll get back to you as soons as possible.
         </Text>
       </View>
-      <TouchableOpacity onPress={handleEmail}>
-        <Text>SUBMIT FEEDBACK</Text>
+      <TouchableOpacity style={globalStyles.btnBlueStyle} onPress={handleEmail}>
+        <Text style={globalStyles.btnTextStyle}>SUBMIT FEEDBACK</Text>
       </TouchableOpacity>
     </View>
   );
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     width: "80%",
     alignItems: "center",
     // backgroundColor: 'purple',
-    flex: 1,
-    justifyContent: "center",
+    paddingVertical: 50,
+    flex: 1
   },
 });
