@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
   textView: {
     width: "80%",
     alignItems: "center",
-    // backgroundColor: 'purple',
     paddingVertical: 50,
     flex: 1
   },
