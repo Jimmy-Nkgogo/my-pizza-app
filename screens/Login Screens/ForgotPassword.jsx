@@ -1,14 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import BackButton from "../../components/BackButton";
 
 const ForgotPassword = () => {
   return (
-    <View>
-      <Text>ForgotPassword</Text>
+    <View style={styles.container}>
+      <BackButton title="Reset Password"/>
+      <View>
+        <Text></Text>
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    flex: 1,
+  },
+});
