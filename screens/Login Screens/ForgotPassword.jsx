@@ -30,10 +30,9 @@ const ForgotPassword = ({ navigation }) => {
         <Text style={styles.resetPassword}>Reset Password</Text>
         <Text
           style={{
-            width: "80%",
+            width: 280,
             textAlign: "center",
-            color: "#333",
-            fontSize: 18,
+            fontSize: 17
           }}
         >
           Enter your email address or mobile number and we will send you a code
@@ -63,7 +62,6 @@ const ForgotPassword = ({ navigation }) => {
           width: "50%",
           justifyContent: "center",
           alignItems: "center",
-          marginLeft: "25%",
           marginTop: 50,
         }}
       >
@@ -88,9 +86,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     flex: 1,
+    alignItems: "center",
+    width: "100%",
   },
   resetPassword: {
-    width: "50%",
+    width: 200,
     fontSize: 34,
     fontWeight: "900",
     textAlign: "center",
@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
     backgroundColor: "#999",
-    marginLeft: 18,
     height: 40,
     borderRadius: 12,
     paddingHorizontal: 20,
