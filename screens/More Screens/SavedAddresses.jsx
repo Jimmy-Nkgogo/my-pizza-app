@@ -6,6 +6,7 @@ import {
   TextInput,
   ScrollView,
   KeyboardAvoidingView,
+  ActivityIndicator,
 } from "react-native";
 import React, { useState } from "react";
 import LineBreak from "../../components/LineBreak";
@@ -26,8 +27,22 @@ const SavedAddresses = () => {
   const [store, setStore] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(true);
   const [toggleForm, setToggleForm] = useState(true);
+
+  const handleDelete = (id) => {
+    const listItem = userAddress.filter((item) => item.key !== id);
+    console.log(listItem);
+    setUserAddress(listItem);
+  };
+
+  const handleToggleForm = () => {
+    setToggleForm(!toggleForm);
+  };
+
+  const handleLoading = () => {
+    setLoading(!loading);
+  };
 
   const handleAddNew = () => {
     setTimeout(() => {}, 3000);
@@ -38,19 +53,14 @@ const SavedAddresses = () => {
       city,
     };
     setUserAddress([...userAddress, listItem]);
-    setStore("");
-    setAddress("");
-    setCity("");
-  };
 
-  const handleDelete = (id) => {
-    const listItem = userAddress.filter((item) => item.key !== id);
-    console.log(listItem);
-    setUserAddress(listItem);
-  };
-
-  const handleToggleForm = () => {
-    setToggleForm(!toggleForm);
+    handleLoading();
+    setTimeout(() => {
+      handleToggleForm();
+      setStore("");
+      setAddress("");
+      setCity("");
+    }, 3000);
   };
 
   return (
@@ -93,7 +103,7 @@ const SavedAddresses = () => {
             ))}
           </View>
         ) : (
-          <KeyboardAvoidingView style={{ alignItems: "center", width: "100%" }}>
+          <View style={{ alignItems: "center", width: "100%" }}>
             <AddCardComponent
               title="Nearby Store"
               placeholder="Store"
@@ -112,14 +122,29 @@ const SavedAddresses = () => {
               value={city}
               setValue={setCity}
             />
-          </KeyboardAvoidingView>
+            <TouchableOpacity style={styles.confirmBtn} onPress={handleAddNew}>
+              {loading ? (
+                <Text
+                  style={{
+                    letterSpacing: 2,
+                    fontWeight: "500",
+                    paddingVertical: 5,
+                  }}
+                >
+                  CONFIRM
+                </Text>
+              ) : (
+                <ActivityIndicator />
+              )}
+            </TouchableOpacity>
+          </View>
         )}
       </ScrollView>
 
       <View style={styles.bottomBtn}>
         <TouchableOpacity
           style={globalBtnStyle.btnBlueStyle}
-          onPress={handleAddNew}
+          onPress={handleToggleForm}
         >
           <Text style={globalBtnStyle.btnTextStyle}>ADD ADDRESS</Text>
         </TouchableOpacity>
@@ -134,6 +159,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: "white",
   },
   blueText: {
     letterSpacing: 2,
@@ -144,6 +170,14 @@ const styles = StyleSheet.create({
     position: "relative",
     bottom: 0,
     width: "100%",
+    alignItems: "center",
+  },
+  confirmBtn: {
+    width: "50%",
+    borderWidth: 1,
+    borderRadius: 12,
+    borderColor: "black",
+    paddingVertical: 5,
     alignItems: "center",
   },
 });
