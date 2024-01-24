@@ -1,9 +1,18 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  TextInput,
+  ScrollView,
+  KeyboardAvoidingView
+} from "react-native";
 import React, { useState } from "react";
 import LineBreak from "../../components/LineBreak";
 import BackButton from "../../components/BackButton";
 import globalBtnStyle from "../../globalBtnStyle";
 import { AntDesign } from "@expo/vector-icons";
+import AddCardComponent from "../../components/AddCardComponent";
 
 const SavedAddresses = () => {
   const [userAddress, setUserAddress] = useState([
@@ -25,44 +34,69 @@ const SavedAddresses = () => {
       address,
       city,
     };
+    setUserAddress([...userAddress, listItem]);
   };
+
 
   return (
     <View style={styles.container}>
       <BackButton title="Saved Addresses" />
       <LineBreak />
-      <View>
-        {userAddress.map((item) => (
-          <View key={item.key}>
-            <Text>SELECTED STORE:</Text>
-            <Text>{item.store}</Text>
-            <Text>DELIVERING TO:</Text>
-            <Text>{`${item.address}, ${item.store}`}</Text>
-            <Text>{item.city}</Text>
-            <TouchableOpacity
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 10,
-                marginVertical: 18,
-              }}
-            >
-              <AntDesign name="delete" size={24} color="black" />
-              <Text>DELETE</Text>
-            </TouchableOpacity>
-            <LineBreak />
-          </View>
-        ))}
-      </View>
-      <View
-        style={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
-        <TouchableOpacity style={globalBtnStyle.btnBlueStyle}>
+      <>
+        <View>
+          {userAddress.map((item) => (
+            <View key={item.key}>
+              <Text style={styles.blueText}>SELECTED STORE:</Text>
+              <Text>{item.store}</Text>
+              <Text style={styles.blueText}>DELIVERING TO:</Text>
+              <Text>{`${item.address}, ${item.store}`}</Text>
+              <Text>{item.city}</Text>
+              <TouchableOpacity
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 10,
+                  marginVertical: 18,
+                }}
+              >
+                <AntDesign name="delete" size={24} color="black" />
+                <Text
+                  style={{ fontWeight: "bold", letterSpacing: 2, fontSize: 18 }}
+                >
+                  DELETE
+                </Text>
+              </TouchableOpacity>
+              <LineBreak />
+            </View>
+          ))}
+        </View>
+
+        <KeyboardAvoidingView style={{ alignItems: "center", width: "100%" }}>
+          <AddCardComponent
+            title="Nearby Store"
+            placeholder="Store"
+            value={store}
+            setValue={setStore}
+          />
+          <AddCardComponent
+            title="Address"
+            placeholder="Address"
+            value={address}
+            setValue={setAddress}
+          />
+          <AddCardComponent
+            title="City"
+            placeholder="City"
+            value={city}
+            setValue={setCity}
+          />
+        </KeyboardAvoidingView>
+      </>
+      <View style={styles.bottomBtn}>
+        <TouchableOpacity
+          style={globalBtnStyle.btnBlueStyle}
+          onPress={handleAddNew}
+        >
           <Text style={globalBtnStyle.btnTextStyle}>ADD ADDRESS</Text>
         </TouchableOpacity>
       </View>
@@ -75,6 +109,17 @@ export default SavedAddresses;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+  },
+  blueText: {
+    letterSpacing: 2,
+    color: "blue",
+    marginVertical: 5,
+  },
+  bottomBtn: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
     alignItems: "center",
   },
 });
