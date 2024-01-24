@@ -37,6 +37,11 @@ const SavedAddresses = () => {
     setUserAddress([...userAddress, listItem]);
   };
 
+  const handleDelete = (id) => {
+    const listItem = userAddress.filter((item) => item.key !== id)
+    console.log(listItem)
+    setUserAddress(listItem)
+  }
 
   return (
     <View style={styles.container}>
@@ -58,6 +63,7 @@ const SavedAddresses = () => {
                   gap: 10,
                   marginVertical: 18,
                 }}
+                onPress={() => handleDelete(item.key)}
               >
                 <AntDesign name="delete" size={24} color="black" />
                 <Text
