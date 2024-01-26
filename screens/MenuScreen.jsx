@@ -22,7 +22,7 @@ const MenuScreen = () => {
               SPECIALS
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.darkBlueBtn}>
+          <TouchableOpacity style={styles.darkBlueBtn} activeOpacity={0.7}>
             <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
               FAVOURITES
             </Text>
@@ -46,5 +46,6 @@ const styles = StyleSheet.create({
     paddingVertical: 25,
     paddingHorizontal: 25,
     borderRadius: 12,
+    elevation: 25,
   },
 });
