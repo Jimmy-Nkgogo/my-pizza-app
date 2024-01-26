@@ -13,24 +13,18 @@ const StoreButton = ({ title }) => {
         alignItems: "center",
         paddingVertical: 10,
         backgroundColor: "whitesmoke",
+        justifyContent: "space-around",
+        gap: 100,
       }}
       onPress={() => navigation.navigate("StoresScreen")}
     >
-      <View
-        style={{
-          width: "90%",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <View>
-          <Text style={{ letterSpacing: 2, textAlign: "center", color: '#444' }}>
-            SELECTED STORE
-          </Text>
-          <Text style={{ textAlign: "left", fontWeight: "bold", fontSize: 24 }}>
-            {title}
-          </Text>
-        </View>
+      <View>
+        <Text style={{ letterSpacing: 2, textAlign: "center", color: "#444" }}>
+          SELECTED STORE
+        </Text>
+        <Text style={{ textAlign: "left", fontWeight: "bold", fontSize: 24 }}>
+          {title}
+        </Text>
       </View>
       <MaterialIcons name="navigate-next" size={34} color="black" />
     </TouchableOpacity>
