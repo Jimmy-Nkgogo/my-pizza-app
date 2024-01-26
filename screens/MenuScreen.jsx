@@ -1,22 +1,29 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  PixelRatio,
+} from "react-native";
 import React from "react";
 import StoreButton from "../components/StoreButton";
+import ImageComponent from "../components/ImageComponent";
 
 const MenuScreen = () => {
+  const pizzaImg = require("../assets/pizza1.jpg");
+  const savaFlava = require("../assets/sava-flava.jpg");
+  const pizzaPie = require("../assets/pizza-pie.jpg");
+  const healthyBerries = require("../assets/healthy.jpg");
+
   return (
     <View style={styles.container}>
       <StoreButton title="Phalaborwa" />
       <View
         style={{ alignItems: "center", flex: 1, width: "95%", marginTop: 15 }}
       >
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            width: "100%",
-            justifyContent: "space-around",
-          }}
-        >
+        {/* buttons */}
+        <View style={styles.centeredViews}>
           <TouchableOpacity style={styles.darkBlueBtn}>
             <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
               SPECIALS
@@ -27,6 +34,12 @@ const MenuScreen = () => {
               FAVOURITES
             </Text>
           </TouchableOpacity>
+          {/* Food */}
+        </View>
+        <View style={styles.centeredViews}>
+          <ImageComponent image={pizzaImg} title="PIZZA"/>
+          <ImageComponent image={savaFlava} title="SAVA FLAVA" />
+          
         </View>
       </View>
     </View>
@@ -48,4 +61,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     elevation: 25,
   },
+  centeredViews: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+    justifyContent: "space-around",
+    marginVertical: 10,
+  },
+  picText: { fontWeight: "bold", marginBottom: 10 },
 });
