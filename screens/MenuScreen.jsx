@@ -68,5 +68,4 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginVertical: 10,
   },
-  picText: { fontWeight: "bold", marginBottom: 10 },
 });

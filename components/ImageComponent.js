@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 
-const ImageComponent = ({ title,image }) => {
+const ImageComponent = ({ title, image }) => {
   return (
     <TouchableOpacity
       style={{
-        backgroundColor: "red",
         width: "40%",
         borderRadius: 12,
         height: 120,
@@ -22,9 +21,11 @@ const ImageComponent = ({ title,image }) => {
 };
 
 ImageComponent.defaultProps = {
-    title: "Pizza",
-}
+  title: "Pizza",
+};
 
 export default ImageComponent;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  picText: { fontWeight: "bold", marginBottom: 10 },
+});
