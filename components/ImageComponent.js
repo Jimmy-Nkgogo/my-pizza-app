@@ -23,7 +23,7 @@ ImageComponent.defaultProps = {
 export default ImageComponent;
 
 const styles = StyleSheet.create({
-  picText: { fontWeight: "bold", marginVertical: 10,fontSize: 18 },
+  picText: { fontWeight: "900", marginVertical: 10,fontSize: 18, letterSpacing: 1 },
   btnStyle: {
     width: "100%",
     borderRadius: 12,
