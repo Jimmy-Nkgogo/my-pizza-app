@@ -9,7 +9,7 @@ const ImageComponent = ({ title, image }) => {
         <Text style={styles.picText}>{title}</Text>
         <Image
           source={image}
-          style={{ height: "100%", width: "100%", backgroundColor: "gray" }}
+          style={{ height: "100%", width: "100%", backgroundColor: "gray", borderRadius: 12 }}
         />
       </TouchableOpacity>
     </Card>
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     height: 120,
     alignItems: "center",
     backgroundColor: "Whitesmoke",
-    elevation: 25,
   },
   cardStyle: {
     paddingHorizontal: 5,

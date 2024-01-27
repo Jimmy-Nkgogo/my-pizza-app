@@ -17,6 +17,9 @@ const MenuScreen = () => {
   const pizzaPie = require("../assets/pizza-pie.jpg");
   const healthyBerries = require("../assets/healthy.jpg");
   const pastaImg = require("../assets/pasta.jpg")
+  const croissant = require("../assets/croissant.jpg")
+  const salad = require("../assets/Salad.jpg")
+  const drink = require("../assets/drink.jpg")
 
   return (
     <View style={styles.container}>
@@ -52,8 +55,12 @@ const MenuScreen = () => {
             <ImageComponent image={healthyBerries} title="DESSERT" />
           </View>
           <View style={styles.centeredViews}>
-            <ImageComponent image={pizzaImg} title="PIZZA" />
-            <ImageComponent image={savaFlava} title="SAVA FLAVA" />
+            <ImageComponent image={pastaImg} title="PASTA" />
+            <ImageComponent image={salad} title="SALADS" />
+          </View>
+          <View style={styles.centeredViews}>
+            <ImageComponent image={croissant} title="STARTERS" />
+            <ImageComponent image={drink} title="DRINKS" />
           </View>
         </View>
       </ScrollView>
