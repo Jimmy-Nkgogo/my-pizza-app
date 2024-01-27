@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   PixelRatio,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import StoreButton from "../components/StoreButton";
@@ -15,33 +16,47 @@ const MenuScreen = () => {
   const savaFlava = require("../assets/sava-flava.jpg");
   const pizzaPie = require("../assets/pizza-pie.jpg");
   const healthyBerries = require("../assets/healthy.jpg");
+  const pastaImg = require("../assets/pasta.jpg")
 
   return (
     <View style={styles.container}>
       <StoreButton title="Phalaborwa" />
-      <View
-        style={{ alignItems: "center", flex: 1, width: "95%", marginTop: 15 }}
-      >
-        {/* buttons */}
-        <View style={styles.centeredViews}>
-          <TouchableOpacity style={styles.darkBlueBtn}>
-            <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
-              SPECIALS
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.darkBlueBtn} activeOpacity={0.7}>
-            <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
-              FAVOURITES
-            </Text>
-          </TouchableOpacity>
-          {/* Food */}
+      <ScrollView>
+        <View
+          style={{ alignItems: "center", flex: 1, width: "95%", marginTop: 15 }}
+        >
+          {/* buttons */}
+          <View style={styles.centeredViews}>
+            <TouchableOpacity style={styles.darkBlueBtn}>
+              <Text
+                style={{ color: "white", fontWeight: "bold", fontSize: 18 }}
+              >
+                SPECIALS
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.darkBlueBtn} activeOpacity={0.7}>
+              <Text
+                style={{ color: "white", fontWeight: "bold", fontSize: 18 }}
+              >
+                FAVOURITES
+              </Text>
+            </TouchableOpacity>
+            {/* Food */}
+          </View>
+          <View style={styles.centeredViews}>
+            <ImageComponent image={pizzaImg} title="PIZZA" />
+            <ImageComponent image={savaFlava} title="SAVA FLAVA" />
+          </View>
+          <View style={styles.centeredViews}>
+            <ImageComponent image={pizzaPie} title="PIZZA PIES" />
+            <ImageComponent image={healthyBerries} title="DESSERT" />
+          </View>
+          <View style={styles.centeredViews}>
+            <ImageComponent image={pizzaImg} title="PIZZA" />
+            <ImageComponent image={savaFlava} title="SAVA FLAVA" />
+          </View>
         </View>
-        <View style={styles.centeredViews}>
-          <ImageComponent image={pizzaImg} title="PIZZA" />
-
-          <ImageComponent image={savaFlava} title="SAVA FLAVA" />
-        </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };
