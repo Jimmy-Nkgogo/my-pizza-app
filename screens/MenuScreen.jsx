@@ -37,9 +37,9 @@ const MenuScreen = () => {
           {/* Food */}
         </View>
         <View style={styles.centeredViews}>
-          <ImageComponent image={pizzaImg} title="PIZZA"/>
+          <ImageComponent image={pizzaImg} title="PIZZA" />
+
           <ImageComponent image={savaFlava} title="SAVA FLAVA" />
-          
         </View>
       </View>
     </View>
@@ -67,5 +67,6 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-around",
     marginVertical: 10,
+    gap: 10,
   },
 });
