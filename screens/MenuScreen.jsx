@@ -48,20 +48,20 @@ const MenuScreen = () => {
             {/* Food */}
           </View>
           <View style={styles.centeredViews}>
-            <ImageComponent image={pizzaImg} title="PIZZA" />
-            <ImageComponent image={savaFlava} title="SAVA FLAVA" />
+            <ImageComponent image={pizzaImg} location="" title="PIZZA"/>
+            <ImageComponent image={savaFlava} location="" title="SAVA FLAVA" />
           </View>
           <View style={styles.centeredViews}>
-            <ImageComponent image={pizzaPie} title="PIZZA PIES" />
-            <ImageComponent image={healthyBerries} title="DESSERT" />
+            <ImageComponent image={pizzaPie} location="" title="PIZZA PIES" />
+            <ImageComponent image={healthyBerries} location="" title="DESSERT" />
           </View>
           <View style={styles.centeredViews}>
-            <ImageComponent image={pastaImg} title="PASTA" />
-            <ImageComponent image={salad} title="SALADS" />
+            <ImageComponent image={pastaImg} location="" title="PASTA" />
+            <ImageComponent image={salad} location="" title="SALADS" />
           </View>
           <View style={styles.centeredViews}>
-            <ImageComponent image={croissant} title="STARTERS" />
-            <ImageComponent image={drink} title="DRINKS" />
+            <ImageComponent image={croissant} location="" title="STARTERS" />
+            <ImageComponent image={drink} location="" title="DRINKS" />
           </View>
         </View>
       </ScrollView>
