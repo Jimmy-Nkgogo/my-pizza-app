@@ -1,15 +1,25 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { Card } from "react-native-shadow-cards";
+import { useNavigation } from "@react-navigation/native";
 
-const ImageComponent = ({ title, image }) => {
+const ImageComponent = ({ title, image, location }) => {
+  const navigation = useNavigation();
   return (
     <Card style={styles.cardStyle}>
-      <TouchableOpacity style={styles.btnStyle}>
+      <TouchableOpacity
+        style={styles.btnStyle}
+        onPress={() => navigation.navigate(location)}
+      >
         <Text style={styles.picText}>{title}</Text>
         <Image
           source={image}
-          style={{ height: "100%", width: "100%", backgroundColor: "gray", borderRadius: 12 }}
+          style={{
+            height: "100%",
+            width: "100%",
+            backgroundColor: "gray",
+            borderRadius: 12,
+          }}
         />
       </TouchableOpacity>
     </Card>
@@ -23,7 +33,12 @@ ImageComponent.defaultProps = {
 export default ImageComponent;
 
 const styles = StyleSheet.create({
-  picText: { fontWeight: "900", marginVertical: 10,fontSize: 18, letterSpacing: 1 },
+  picText: {
+    fontWeight: "900",
+    marginVertical: 10,
+    fontSize: 18,
+    letterSpacing: 1,
+  },
   btnStyle: {
     width: "100%",
     borderRadius: 12,

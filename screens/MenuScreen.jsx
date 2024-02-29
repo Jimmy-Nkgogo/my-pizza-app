@@ -21,6 +21,7 @@ const MenuScreen = () => {
   const salad = require("../assets/Salad.jpg")
   const drink = require("../assets/drink.jpg")
 
+
   return (
     <View style={styles.container}>
       <StoreButton title="Phalaborwa" />
