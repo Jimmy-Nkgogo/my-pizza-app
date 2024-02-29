@@ -13,7 +13,11 @@ const StackNavigator = createNativeStackNavigator();
 
 const MenuNav = () => {
   return (
-    <StackNavigator.Navigator>
+    <StackNavigator.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <StackNavigator.Screen name="Menu" component={MenuScreen} />
       <StackNavigator.Screen name="Dessert" component={Dessert} />
       <StackNavigator.Screen name="Drinks" component={Drinks} />
@@ -26,3 +30,5 @@ const MenuNav = () => {
     </StackNavigator.Navigator>
   );
 };
+
+export default MenuNav;
