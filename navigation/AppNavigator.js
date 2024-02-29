@@ -10,7 +10,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import AuthStack from "./AuthStack";
 import MoreNav from "./MoreNav";
-
+import MenuNav from "./MenuNav";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -49,7 +49,7 @@ const BottomTabs = () => {
     >
       <Tab.Screen
         name="Menu"
-        component={MenuScreen}
+        component={MenuNav}
         options={{
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="book" size={24} color={color} />

@@ -18,7 +18,7 @@ const MenuNav = () => {
         headerShown: false,
       }}
     >
-      <StackNavigator.Screen name="Menu" component={MenuScreen} />
+      <StackNavigator.Screen name="MenuScreen" component={MenuScreen} />
       <StackNavigator.Screen name="Dessert" component={Dessert} />
       <StackNavigator.Screen name="Drinks" component={Drinks} />
       <StackNavigator.Screen name="Pasta" component={Pasta} />
