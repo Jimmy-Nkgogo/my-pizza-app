@@ -11,6 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AuthStack from "./AuthStack";
 import MoreNav from "./MoreNav";
 
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
