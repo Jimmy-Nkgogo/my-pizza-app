@@ -57,7 +57,7 @@ const MenuScreen = () => {
           <View style={styles.centeredViews}>
             <ImageComponent
               image={pizzaPie}
-              location="PizzaPie"
+              location="PizzaPies"
               title="PIZZA PIES"
             />
             <ImageComponent
