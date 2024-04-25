@@ -23,7 +23,10 @@ const UsersSlice = createSlice({
   },
 });
 
-export const selectAllUsers = (state) => state.users;
+export const selectAllUsers = (state) => {
+  const users = state.users;
+  return users[users.length - 1]
+} 
 
 export const { userAdded } = UsersSlice.actions;
 
