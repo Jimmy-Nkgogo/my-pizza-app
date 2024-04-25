@@ -40,6 +40,7 @@ const Register2 = ({ navigation }) => {
   ]);
   const [checked, setChecked] = useState(false);
   const [req, setReq] = useState("");
+  const [selectedRequirements, setSelectedRequirements] = useState([])
 
   const handleCheck = (id) => {
     console.log(id);
@@ -47,6 +48,8 @@ const Register2 = ({ navigation }) => {
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setDietaryReq(listItems);
+
+    
   };
 
   return (
@@ -92,7 +95,7 @@ const Register2 = ({ navigation }) => {
             {dietaryReq.map((item) => (
               <TouchableOpacity
                 key={item.id}
-                onPress={handleCheck}
+                onPress={() => handleCheck(item.id)}
                 style={styles.inputStyle}
               >
                 <Text>{item.req}</Text>

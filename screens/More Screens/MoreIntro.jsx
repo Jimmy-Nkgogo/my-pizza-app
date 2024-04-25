@@ -4,8 +4,11 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import LineBreak from "../../components/LineBreak";
 import ItemComponent from "../../components/ItemComponent";
 import packageJson from "../../package.json";
+import { selectAllUsers } from "../../redux/features/UsersSlice";
+import { useSelector } from "react-redux";
 
 const MoreIntro = ({ navigation }) => {
+  const user = useSelector(selectAllUsers)
   const [userDetails, setUserDetails] = useState([
     {
       id: 1,
@@ -21,17 +24,18 @@ const MoreIntro = ({ navigation }) => {
 
   const handleNavigation = (location, options) => {
     if (location === "AuthStack") {
-      navigation.replace("AuthStack");
+      navigation.replace("AuthStack"); 
     } else {
       navigation.navigate(location, options);
     }
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.userView}>
         <FontAwesome5 name="user-circle" size={50} color="black" />
         <Text style={{ fontSize: 28, fontWeight: "900", letterSpacing: 1.5 }}>
-          {userDetails[0].name}
+          {user[user.length - 1].name}
         </Text>
       </View>
       <LineBreak />

@@ -26,10 +26,18 @@ const Register1 = ({ navigation }) => {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
-  const [nationality] = useState("South Africa");
-  const [date, setDate] = useState(new Date());
-  const [open, setOpen] = useState(false);
+  const [nationality, setNationality] = useState("South Africa");
 
+  const handleDataAdded = (field, value) => {
+    setUserDetails((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    navigation.navigate("Register2", userDetails);
+  };
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View>
@@ -81,6 +89,10 @@ const Register1 = ({ navigation }) => {
             placeholder="First Name"
             type="text"
             value={firstName}
+            onChangeText={(value) => {
+              setFirstName(value);
+              handleDataAdded("firstName", value);
+            }}
           />
           <TextInput
             style={styles.inputStyle}
@@ -88,11 +100,19 @@ const Register1 = ({ navigation }) => {
             placeholder="Last Name"
             type="text"
             value={lastName}
+            onChangeText={(value) => {
+              setLastName(value);
+              handleDataAdded("lastName", value);
+            }}
           />
           <TextInput
             style={styles.inputStyle}
             placeholder="Date of Birth (Optional)"
             value={dateOfBirth}
+            onChangeText={(value) => {
+              setDateOfBirth(value);
+              handleDataAdded("dateOfBirth", value);
+            }}
           />
           <View style={{ width: "100%", marginLeft: 38 }}>
             <Text>NATIONALITY</Text>
@@ -100,7 +120,10 @@ const Register1 = ({ navigation }) => {
               style={styles.inputStyle}
               placeholder={nationality}
               value={nationality}
-              editable={false}
+              onChangeText={(value) => {
+                setNationality(value);
+                handleDataAdded("nationality", value);
+              }}
             />
           </View>
           <TextInput
@@ -109,17 +132,22 @@ const Register1 = ({ navigation }) => {
             type="number"
             keyboardType="numeric"
             value={mobile}
+            onChangeText={(value) => {
+              setMobile(value);
+              handleDataAdded("mobile", value);
+            }}
           />
           <TextInput
             style={styles.inputStyle}
             placeholder="Email Address"
             type="email"
             value={email}
+            onChangeText={(value) => {
+              setEmail(value);
+              handleDataAdded("email", value);
+            }}
           />
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Register2")}
-            style={styles.btnNext}
-          >
+          <TouchableOpacity onPress={handleSubmit} style={styles.btnNext}>
             <Text
               style={{
                 color: "white",
