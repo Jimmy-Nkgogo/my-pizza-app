@@ -11,8 +11,6 @@ import React, { useState } from "react";
 import BackButton from "../../components/BackButton";
 import LineBreak from "../../components/LineBreak";
 import AddCardComponent from "../../components/AddCardComponent";
-import { FontAwesome } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
 import SavedCardComponent from "../../components/SavedCardComponent";
 
 const SavedCards = () => {
