@@ -14,7 +14,10 @@ import {
   Feather,
   AntDesign,
 } from "@expo/vector-icons";
-import { userAdded } from "../../redux/features/UsersSlice";
+import {
+  updateCommunication,
+  userAdded,
+} from "../../redux/features/UsersSlice";
 import { useDispatch } from "react-redux";
 
 const Register3 = ({ navigation, route }) => {
@@ -26,7 +29,7 @@ const Register3 = ({ navigation, route }) => {
   const [smsCheck, setSmsCheck] = useState(false);
 
   const { userDetails } = route.params;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handlePasswordVisibility = () => {
     setVisible(!visibile);
@@ -37,23 +40,26 @@ const Register3 = ({ navigation, route }) => {
 
   const handleEmailCheck = () => {
     setEmailCheck(!emailCheck);
+    setSmsCheck(false)
   };
 
   const handleSmsCheck = () => {
     setSmsCheck(!smsCheck);
+    setEmailCheck(false)
   };
 
   const handleSubmit = () => {
     communication = "";
     if (smsCheck) {
-      communication = "sms"
+      communication = "sms";
     } else {
-      communication = "email"
+      communication = "email";
     }
-    const completeUserData = { ...userDetails, communication}
+    dispatch(updateCommunication({ userId: userDetails.id, communication }));
+    const completeUserData = { ...userDetails, communication };
 
-    d
-  }
+    d;
+  };
 
   return (
     <KeyboardAvoidingView style={styles.container}>

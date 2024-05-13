@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
+import { nanoid } from "@reduxjs/toolkit";
 
 const Register1 = ({ navigation }) => {
   const [userDetails, setUserDetails] = useState([
@@ -39,12 +40,14 @@ const Register1 = ({ navigation }) => {
   const handleSubmit = () => {
     navigation.navigate("Register2", {
       userDetails: {
+        id: nanoid(),
         firstName,
         lastName,
         dateOfBirth,
         nationality,
         mobile,
         email,
+        dietReq: []
       },
     });
     console.log(userDetails);

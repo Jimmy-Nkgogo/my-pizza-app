@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { updateDietaryRequirements } from "../../redux/features/UsersSlice";
 
 const Register2 = ({ navigation, route }) => {
   const [dietaryReq, setDietaryReq] = useState([
@@ -37,10 +39,9 @@ const Register2 = ({ navigation, route }) => {
       checked: true,
     },
   ]);
-  const [checked, setChecked] = useState(false);
-  const [req, setReq] = useState("");
   const [selectedRequirements, setSelectedRequirements] = useState([]);
 
+  const dispatch = useDispatch();
   const { userDetails } = route.params;
 
   const handleCheck = (id) => {
@@ -58,10 +59,16 @@ const Register2 = ({ navigation, route }) => {
   const handleSubmit = () => {
     console.log(selectedRequirements);
     // Navigate to the next screen (ThirdScreen) and pass userDetails and dietReq as params
+    dispatch(
+      updateDietaryRequirements({
+        userId: userDetails.id,
+        dietReq: selectedRequirements,
+      })
+    );
     navigation.navigate("Register3", {
-      userDetails: { ...userDetails, requirements: selectedRequirements },
+      userDetails: { ...userDetails },
     });
-    console.log(userDetails)
+    console.log(userDetails);
   };
 
   return (
