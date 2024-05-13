@@ -10,9 +10,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import UserDetails from "../../components/UserDetails";
 import ButtonsContainer from "../../components/ButtonsContainer";
+import { selectAllUsers } from "../../redux/features/UsersSlice";
+import { useSelector } from "react-redux";
 
 const ViewAccount = ({ navigation, route }) => {
-  const user = route.params.userDetails;
+  const user = useSelector(selectAllUsers);
   const handleNavigation = route.params.handleNavigation;
 
   return (
@@ -30,23 +32,21 @@ const ViewAccount = ({ navigation, route }) => {
           style={{
             justifyContent: "center",
             alignItems: "center",
-            marginLeft: "22.5%",
+            width: "90%"
           }}
         >
           <FontAwesome5 name="user-circle" size={48} color="black" />
-          <Text style={{ fontSize: 23, fontWeight: "bold" }}>
-            {user[0].name}
+          <Text style={{ fontSize: 23, fontWeight: "bold", textAlign: "center" }}>
+            {user.firstName + " " + user.lastName}
           </Text>
         </View>
       </View>
       <View style={styles.mainContent}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {user.map((item) => (
-            <View key={item.id}>
-              <UserDetails item={item} />
+            <View >
+              <UserDetails item={user} />
               <ButtonsContainer handleNavigation={handleNavigation} />
             </View>
-          ))}
         </ScrollView>
       </View>
     </View>

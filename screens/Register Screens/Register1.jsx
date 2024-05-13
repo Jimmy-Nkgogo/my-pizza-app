@@ -47,7 +47,8 @@ const Register1 = ({ navigation }) => {
         nationality,
         mobile,
         email,
-        dietReq: []
+        dietReq: [],
+        communication: ''
       },
     });
     console.log(userDetails);

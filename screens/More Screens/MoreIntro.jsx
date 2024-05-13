@@ -35,7 +35,7 @@ const MoreIntro = ({ navigation }) => {
       <View style={styles.userView}>
         <FontAwesome5 name="user-circle" size={50} color="black" />
         <Text style={{ fontSize: 28, fontWeight: "900", letterSpacing: 1.5 }}>
-          {user.name}
+          {user.firstName + " " + user.lastName}
         </Text>
       </View>
       <LineBreak />

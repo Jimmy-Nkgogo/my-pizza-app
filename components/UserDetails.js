@@ -9,21 +9,21 @@ const UserDetails = ({ item }) => {
           ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         </Text>
         <Text style={styles.dataNameStyle}>DATE OF BIRTH</Text>
-        <Text style={styles.dataTextStyle}>--</Text>
+        <Text style={styles.dataTextStyle}>{item.dateOfBirth}</Text>
       </View>
       <Text style={styles.lineBreakStyle}>
         ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       </Text>
       <View style={styles.dataViewStyle}>
         <Text style={styles.dataNameStyle}>COUNTRY</Text>
-        <Text style={styles.dataTextStyle}>{item.country}</Text>
+        <Text style={styles.dataTextStyle}>{item.nationality}</Text>
       </View>
       <Text style={styles.lineBreakStyle}>
         ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       </Text>
       <View style={styles.dataViewStyle}>
         <Text style={styles.dataNameStyle}>MOBILE NUMBER</Text>
-        <Text style={styles.dataTextStyle}>{item.mobileNumber}</Text>
+        <Text style={styles.dataTextStyle}>{item.mobile}</Text>
       </View>
       <Text style={styles.lineBreakStyle}>
         ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,11 @@ const UserDetails = ({ item }) => {
       </Text>
       <View style={styles.dataViewStyle}>
         <Text style={styles.dataNameStyle}>DIETARY REQUIREMENTS</Text>
-        <Text style={styles.dataTextStyle}>{item.dietReq}</Text>
+        <Text style={styles.dataTextStyle}>{item.dietReq.map((item, index) => (
+          <View key={index}>
+            <Text>{item} {" "}</Text>
+          </View>
+        ))}</Text>
       </View>
       <Text style={styles.lineBreakStyle}>
         ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

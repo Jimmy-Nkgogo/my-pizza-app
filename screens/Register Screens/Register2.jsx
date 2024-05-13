@@ -66,7 +66,7 @@ const Register2 = ({ navigation, route }) => {
       })
     );
     navigation.navigate("Register3", {
-      userDetails: { ...userDetails },
+      userDetails: { ...userDetails, dietReq: selectedRequirements },
     });
     console.log(userDetails);
   };

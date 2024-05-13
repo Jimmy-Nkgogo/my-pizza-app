@@ -57,8 +57,10 @@ const Register3 = ({ navigation, route }) => {
     }
     dispatch(updateCommunication({ userId: userDetails.id, communication }));
     const completeUserData = { ...userDetails, communication };
+    console.log(completeUserData)
+    dispatch(userAdded(completeUserData));
 
-    d;
+    navigation.navigate("BottomTabs")
   };
 
   return (
@@ -225,7 +227,7 @@ const Register3 = ({ navigation, route }) => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate("BottomTabs")}
+              onPress={handleSubmit}
               style={styles.btnNext}
             >
               <Text
