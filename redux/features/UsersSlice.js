@@ -6,7 +6,7 @@ const initialState = [
     name: "James Dean",
     dateOfBirth: "--",
     country: "South Africa",
-    mobileNumber: "0736746218",
+    mobile: "0736746218",
     email: "nkgogojimmy@gmail.com",
     dietReq: [],
     communication: "SMS",
@@ -25,8 +25,8 @@ const UsersSlice = createSlice({
 
 export const selectAllUsers = (state) => {
   const users = state.users;
-  return users[users.length - 1]
-} 
+  return users[users.length - 1];
+};
 
 export const { userAdded } = UsersSlice.actions;
 

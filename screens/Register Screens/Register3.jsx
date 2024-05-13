@@ -8,18 +8,25 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  Ionicons,
+  Feather,
+  AntDesign,
+} from "@expo/vector-icons";
+import { userAdded } from "../../redux/features/UsersSlice";
+import { useDispatch } from "react-redux";
 
-const Register2 = ({ navigation }) => {
+const Register3 = ({ navigation, route }) => {
   const [password, setPassword] = useState("");
   const [createPassword, setCreatePassword] = useState("");
   const [visibile, setVisible] = useState(false);
   const [visibile2, setVisible2] = useState(false);
   const [emailCheck, setEmailCheck] = useState(false);
   const [smsCheck, setSmsCheck] = useState(false);
+
+  const { userDetails } = route.params;
+  const dispatch = useDispatch()
 
   const handlePasswordVisibility = () => {
     setVisible(!visibile);
@@ -35,6 +42,18 @@ const Register2 = ({ navigation }) => {
   const handleSmsCheck = () => {
     setSmsCheck(!smsCheck);
   };
+
+  const handleSubmit = () => {
+    communication = "";
+    if (smsCheck) {
+      communication = "sms"
+    } else {
+      communication = "email"
+    }
+    const completeUserData = { ...userDetails, communication}
+
+    d
+  }
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -222,7 +241,7 @@ const Register2 = ({ navigation }) => {
   );
 };
 
-export default Register2;
+export default Register3;
 
 const styles = StyleSheet.create({
   container: {

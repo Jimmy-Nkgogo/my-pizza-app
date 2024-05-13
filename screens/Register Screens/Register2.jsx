@@ -3,14 +3,13 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput,
   KeyboardAvoidingView,
   ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 
-const Register2 = ({ navigation }) => {
+const Register2 = ({ navigation, route }) => {
   const [dietaryReq, setDietaryReq] = useState([
     {
       id: 1,
@@ -40,7 +39,9 @@ const Register2 = ({ navigation }) => {
   ]);
   const [checked, setChecked] = useState(false);
   const [req, setReq] = useState("");
-  const [selectedRequirements, setSelectedRequirements] = useState([])
+  const [selectedRequirements, setSelectedRequirements] = useState([]);
+
+  const { userDetails } = route.params;
 
   const handleCheck = (id) => {
     console.log(id);
@@ -49,7 +50,18 @@ const Register2 = ({ navigation }) => {
     );
     setDietaryReq(listItems);
 
-    
+    const selectedReq = listItems
+      .filter((item) => item.checked)
+      .map((item) => item.req);
+    setSelectedRequirements(selectedReq);
+  };
+  const handleSubmit = () => {
+    console.log(selectedRequirements);
+    // Navigate to the next screen (ThirdScreen) and pass userDetails and dietReq as params
+    navigation.navigate("Register3", {
+      userDetails: { ...userDetails, requirements: selectedRequirements },
+    });
+    console.log(userDetails)
   };
 
   return (
@@ -91,7 +103,7 @@ const Register2 = ({ navigation }) => {
         <View style={{ marginVertical: 15 }}></View>
 
         <ScrollView style={{ width: "100%", flex: 1, marginVertical: 10 }}>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
             {dietaryReq.map((item) => (
               <TouchableOpacity
                 key={item.id}
@@ -121,10 +133,7 @@ const Register2 = ({ navigation }) => {
                   BACK
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Register3")}
-                style={styles.btnNext}
-              >
+              <TouchableOpacity onPress={handleSubmit} style={styles.btnNext}>
                 <Text
                   style={{
                     color: "white",

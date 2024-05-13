@@ -19,6 +19,7 @@ const Register1 = ({ navigation }) => {
       nationality: "South Africa",
       mobile: null,
       email: "",
+      dietReq: []
     },
   ]);
   const [firstName, setFirstName] = useState("");
@@ -36,7 +37,17 @@ const Register1 = ({ navigation }) => {
   };
 
   const handleSubmit = () => {
-    navigation.navigate("Register2", userDetails);
+    navigation.navigate("Register2", {
+      userDetails: {
+        firstName,
+        lastName,
+        dateOfBirth,
+        nationality,
+        mobile,
+        email,
+      },
+    });
+    console.log(userDetails);
   };
   return (
     <KeyboardAvoidingView style={styles.container}>
