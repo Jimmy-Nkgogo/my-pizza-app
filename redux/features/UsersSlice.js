@@ -6,7 +6,7 @@ const initialState = [
     firstName: "James",
     lastName: "Dean",
     dateOfBirth: "--",
-    country: "South Africa",
+    nationality: "South Africa",
     mobile: "0736746218",
     email: "nkgogojimmy@gmail.com",
     dietReq: [],
@@ -43,6 +43,7 @@ export const selectAllUsers = (state) => {
   return users[users.length - 1];
 };
 
-export const { userAdded, updateDietaryRequirements,updateCommunication } = UsersSlice.actions;
+export const { userAdded, updateDietaryRequirements, updateCommunication } =
+  UsersSlice.actions;
 
 export default UsersSlice.reducer;
