@@ -48,9 +48,20 @@ const styles = StyleSheet.create({
   },
   cardStyle: {
     paddingHorizontal: 5,
-    width: "45%",
+    width: '45%',
     height: 170,
-    elevation: 5,
     borderRadius: 12,
+    ...Platform.select({
+      ios: {
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
+  
 });
